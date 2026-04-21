@@ -28,7 +28,7 @@
     });
 
     /* Sub-menu toggle on mobile */
-    nav.querySelectorAll('.has-dropdown > a').forEach(link => {
+    nav.querySelectorAll('.menu-item-has-children > a').forEach(link => {
       link.addEventListener('click', e => {
         if (window.innerWidth <= 768) {
           e.preventDefault();
@@ -92,28 +92,4 @@
     });
   });
 
-  /* ---- Admin sitemap AJAX ---- */
-  const sitemapBtn = document.getElementById('sa-generate-sitemap');
-  if (sitemapBtn) {
-    sitemapBtn.addEventListener('click', () => {
-      sitemapBtn.disabled = true;
-      sitemapBtn.textContent = sitemapBtn.dataset.loading || 'Wird generiert…';
-      fetch(window.saAdmin.ajaxUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ action: 'sa_generate_sitemap', nonce: window.saAdmin.nonce })
-      })
-        .then(r => r.json())
-        .then(data => {
-          const msg = document.getElementById('sa-sitemap-msg');
-          if (msg) msg.textContent = data.success ? (data.data || 'Sitemap erfolgreich erstellt!') : ('Fehler: ' + (data.data || 'Unbekannt'));
-          sitemapBtn.disabled = false;
-          sitemapBtn.textContent = sitemapBtn.dataset.label || 'Jetzt aktualisieren';
-        })
-        .catch(() => {
-          sitemapBtn.disabled = false;
-          sitemapBtn.textContent = sitemapBtn.dataset.label || 'Jetzt aktualisieren';
-        });
-    });
-  }
 })();

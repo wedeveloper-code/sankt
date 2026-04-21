@@ -17,8 +17,8 @@
           <ul class="footer-links">
             <li><a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Startseite', 'sant-andreasberg'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/about-sankt-andreasberg/')); ?>"><?php esc_html_e('Über Sankt Andreasberg', 'sant-andreasberg'); ?></a></li>
-            <li><a href="<?php echo esc_url(home_url('/winter/')); ?>"><?php esc_html_e('Winter', 'sant-andreasberg'); ?></a></li>
-            <li><a href="<?php echo esc_url(home_url('/summer/')); ?>"><?php esc_html_e('Sommer', 'sant-andreasberg'); ?></a></li>
+            <li><a href="<?php echo sa_get_cat_url('winter'); ?>"><?php esc_html_e('Winter', 'sant-andreasberg'); ?></a></li>
+            <li><a href="<?php echo sa_get_cat_url('sommer'); ?>"><?php esc_html_e('Sommer', 'sant-andreasberg'); ?></a></li>
             <li><a href="<?php echo esc_url(home_url('/sights/')); ?>"><?php esc_html_e('Sehenswürdigkeiten', 'sant-andreasberg'); ?></a></li>
           </ul>
         <?php } ?>

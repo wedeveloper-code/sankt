@@ -264,7 +264,7 @@ Geschäftsführer: Rolf Krüger</p>
 <h2>Rechtlicher Hinweis</h2>
 <p>Der Inhalt dieser Website ist urheberrechtlich geschützt. Texte, Bilder, Grafiken sowie Animationen und Videomaterial auf dieser Website unterliegen dem Urheberrecht und dürfen nicht ohne ausdrückliche, schriftliche Genehmigung der Bergsport Arena GmbH kopiert oder verändert werden.</p>
 
-<p>© 2008–<?php echo date("Y"); ?> Bergsport Arena GmbH</p>',
+<p>© 2008–' . date('Y') . ' Bergsport Arena GmbH</p>',
         ],
 
         /* ---- PRIVACY POLICY ---- */

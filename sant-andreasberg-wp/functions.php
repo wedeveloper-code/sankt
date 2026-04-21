@@ -40,24 +40,23 @@ add_action('after_setup_theme', function () {
    ENQUEUE ASSETS
    ============================================= */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style(
-        'sa-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap',
-        [],
-        null
-    );
-    wp_enqueue_style('sa-main', SA_URI . '/assets/css/main.css', ['sa-fonts'], SA_VERSION);
+    /* Critical CSS — loaded normally (render-blocking is acceptable for layout CSS) */
+    wp_enqueue_style('sa-main', SA_URI . '/assets/css/main.css', [], SA_VERSION);
+    /* JS in footer — non-blocking */
     wp_enqueue_script('sa-main', SA_URI . '/assets/js/main.js', [], SA_VERSION, true);
+    wp_script_add_data('sa-main', 'defer', true);
 });
 
-/* =============================================
-   PERMALINK STRUCTURE
-   ============================================= */
-add_action('after_switch_theme', function () {
-    global $wp_rewrite;
-    $wp_rewrite->set_permalink_structure('/%category%/%postname%/');
-    $wp_rewrite->flush_rules();
-});
+/* Load Google Fonts asynchronously to avoid render-blocking */
+add_action('wp_head', function () {
+    $font_url = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap';
+    /* Preconnect hints */
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>' . "\n";
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+    /* Non-blocking font load */
+    echo '<link rel="preload" href="' . esc_url($font_url) . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+    echo '<noscript><link rel="stylesheet" href="' . esc_url($font_url) . '"></noscript>' . "\n";
+}, 5);
 
 /* =============================================
    CUSTOM TITLE TAG
@@ -72,9 +71,12 @@ add_filter('document_title_parts', function ($parts) {
 }, 20);
 
 /* =============================================
-   REMOVE CATEGORY BASE (optional - clean URLs)
+   CATEGORY URL HELPER
    ============================================= */
-add_filter('category_base', '__return_empty_string');
+function sa_get_cat_url(string $slug): string {
+    $term = get_term_by('slug', $slug, 'category');
+    return $term ? esc_url(get_category_link($term->term_id)) : esc_url(home_url('/'));
+}
 
 /* =============================================
    BODY CLASSES
@@ -184,6 +186,36 @@ function sa_get_custom_meta(string $key): string {
 function sa_the_custom_h1(string $fallback = '') {
     $h1 = sa_get_custom_meta('h1');
     echo '<h1>' . esc_html($h1 ?: $fallback) . '</h1>';
+}
+
+/* =============================================
+   FRONT PAGE HELPERS (used in front-page.php)
+   ============================================= */
+function sa_feature_card(string $icon, string $title, string $text, string $url): void { ?>
+  <div class="feature-item">
+    <div class="feature-icon" aria-hidden="true" style="font-size:1.75rem;background:none"><?php echo $icon; /* numeric HTML entity — safe, hardcoded */ ?></div>
+    <h3><?php echo esc_html($title); ?></h3>
+    <p style="font-size:.9rem;color:var(--color-text-light)"><?php echo esc_html($text); ?></p>
+    <a href="<?php echo esc_url($url); ?>" class="card-link"><?php esc_html_e('Mehr erfahren', 'sant-andreasberg'); ?></a>
+  </div>
+<?php }
+
+function sa_fact(string $value, string $label): void { ?>
+  <div class="feature-item" style="padding:1rem">
+    <div class="stat-number" style="font-size:1.75rem"><?php echo $value; /* hardcoded numeric entity — safe */ ?></div>
+    <div class="stat-label"><?php echo esc_html($label); ?></div>
+  </div>
+<?php }
+
+/* Fallback menu when no nav menu is assigned */
+function sa_default_menu(array $args = []): void {
+    echo '<ul class="main-nav">';
+    echo '<li><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Startseite', 'sant-andreasberg') . '</a></li>';
+    $cats = get_categories(['hide_empty' => true, 'number' => 6]);
+    foreach ($cats as $cat) {
+        echo '<li><a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a></li>';
+    }
+    echo '</ul>';
 }
 
 /* =============================================

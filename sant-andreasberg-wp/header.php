@@ -13,8 +13,6 @@ if (!$meta_desc && is_singular()) {
 if ($meta_desc): ?>
 <meta name="description" content="<?php echo esc_attr($meta_desc); ?>">
 <?php endif; ?>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -44,7 +42,6 @@ if ($meta_desc): ?>
             'theme_location' => 'primary',
             'menu_class'     => 'main-nav',
             'container'      => false,
-            'walker'         => class_exists('SA_Nav_Walker') ? new SA_Nav_Walker() : null,
             'fallback_cb'    => 'sa_default_menu',
         ]);
         ?>
@@ -53,15 +50,3 @@ if ($meta_desc): ?>
     </div>
   </div>
 </header>
-
-<?php
-function sa_default_menu() {
-    echo '<ul class="main-nav">';
-    echo '<li><a href="' . esc_url(home_url('/')) . '">' . __('Startseite', 'sant-andreasberg') . '</a></li>';
-    $cats = get_categories(['hide_empty' => true, 'number' => 6]);
-    foreach ($cats as $cat) {
-        echo '<li><a href="' . esc_url(get_category_link($cat->term_id)) . '">' . esc_html($cat->name) . '</a></li>';
-    }
-    echo '</ul>';
-}
-?>

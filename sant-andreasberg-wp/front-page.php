@@ -138,7 +138,7 @@
     <div class="container">
       <div class="flex justify-between" style="margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
         <h2><?php esc_html_e('Aktuelles', 'sant-andreasberg'); ?></h2>
-        <a href="<?php echo esc_url(home_url('/news/')); ?>" class="btn btn-primary">
+        <a href="<?php echo sa_get_cat_url('news'); ?>" class="btn btn-primary">
           <?php esc_html_e('Alle Neuigkeiten', 'sant-andreasberg'); ?>
         </a>
       </div>
@@ -154,21 +154,3 @@
 </main>
 
 <?php get_footer(); ?>
-
-<?php
-function sa_feature_card(string $icon, string $title, string $text, string $url): void { ?>
-  <div class="feature-item">
-    <div class="feature-icon" aria-hidden="true" style="font-size:1.75rem;background:none"><?php echo esc_html($icon); ?></div>
-    <h3><?php echo esc_html($title); ?></h3>
-    <p style="font-size:.9rem;color:var(--color-text-light)"><?php echo esc_html($text); ?></p>
-    <a href="<?php echo esc_url($url); ?>" class="card-link"><?php esc_html_e('Mehr erfahren', 'sant-andreasberg'); ?></a>
-  </div>
-<?php }
-
-function sa_fact(string $value, string $label): void { ?>
-  <div class="feature-item" style="padding:1rem">
-    <div class="stat-number" style="font-size:1.75rem"><?php echo esc_html($value); ?></div>
-    <div class="stat-label"><?php echo esc_html($label); ?></div>
-  </div>
-<?php }
-?>

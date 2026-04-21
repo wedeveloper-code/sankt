@@ -1,0 +1,220 @@
+# =============================================
+# .htaccess for sankt-andreasberg.com
+# WordPress + 301 redirects from old site
+# =============================================
+# Upload this file to your server root as .htaccess
+# (rename from htaccess.txt to .htaccess)
+
+# --- PHP settings ---
+php_value upload_max_filesize 64M
+php_value post_max_size 64M
+php_value max_execution_time 300
+php_value memory_limit 256M
+
+# --- Security headers ---
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# --- GZIP compression ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# --- Browser caching ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- 301 REDIRECTS: old site → new site ---
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ---- OLD HOMEPAGE / FRAMESET ----
+    RewriteRule ^index\.html$ / [R=301,L]
+    RewriteRule ^andreasberg/de/text/text-intro\.html$ / [R=301,L]
+    RewriteRule ^bergsport/de/text/text-intro\.html$ / [R=301,L]
+    RewriteRule ^bergsport/de/text/text\.html$ / [R=301,L]
+    RewriteRule ^andreasberg/de/text/text\.html$ / [R=301,L]
+
+    # ---- ABOUT / CITY INFO ----
+    RewriteRule ^bergsport/de/text/info\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/ueber\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/info\.html$ /about-sankt-andreasberg/ [R=301,L]
+
+    # ---- HISTORY ----
+    RewriteRule ^bergsport/de/text/geschichte\.html$ /history/ [R=301,L]
+
+    # ---- WINTER ----
+    RewriteRule ^andreasberg/de/frames/winter\.html$ /winter/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/winter\.html$ /winter/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/winter\.html$ /winter/ [R=301,L]
+    RewriteRule ^bergsport/de/text/winter\.html$ /winter/ [R=301,L]
+
+    # Ski pisten
+    RewriteRule ^andreasberg/de/frames/pisten\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^bergsport/de/text/pisten\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/pisten\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^bergsport/de/text/skikreuz\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^bergsport/de/text/msb-winter\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/msb-winter\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sonnenberg-winter\.html$ /winter/ski-slopes/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/sonnenberg-winter\.html$ /winter/ski-slopes/ [R=301,L]
+
+    # Loipen
+    RewriteRule ^andreasberg/de/frames/loipen-winter\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/loipen-winter\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^bergsport/de/text/loipen\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^bergsport/de/text/schneewittchenloipe\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/schneewittchenloipe\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sonnenberg-loipe\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/sonnenberg-loipe\.html$ /winter/ski-trails/ [R=301,L]
+    RewriteRule ^bergsport/de/text/oderberg\.html$ /winter/ski-trails/ [R=301,L]
+
+    # Rodeln
+    RewriteRule ^bergsport/de/frames/rodeln\.html$ /winter/sledding/ [R=301,L]
+    RewriteRule ^bergsport/de/text/rodeln\.html$ /winter/sledding/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sonnenberg-rodeln\.html$ /winter/sledding/ [R=301,L]
+
+    # Winter hiking
+    RewriteRule ^bergsport/de/frames/winter-wandern\.html$ /winter/winter-hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/winter-wandern\.html$ /winter/winter-hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/andreasheim\.html$ /winter/winter-hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/kleiner-oderberg\.html$ /winter/winter-hiking/ [R=301,L]
+
+    # ---- SOMMER ----
+    RewriteRule ^andreasberg/de/frames/sommer\.html$ /summer/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/sommer\.html$ /summer/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sommer\.html$ /summer/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/aktiv\.html$ /summer/ [R=301,L]
+    RewriteRule ^bergsport/de/text/aktiv\.html$ /summer/ [R=301,L]
+
+    # Wandern
+    RewriteRule ^bergsport/de/frames/wandern-sommer\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^andreasberg/de/frames/wandern-sommer\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/wandertouren\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/achtermann\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/achtermann\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/oderberg-runde\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/freibiersquelle\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/galgenberg\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/hoehenwalk\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/hoehenweg\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/rehbergrunde\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/rinderstall\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sieberberg\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/silberteich\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/skikreuz-runde\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sonnenberg\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/wolfswarte\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/bismark\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/drei-tuerme\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/drei-tuerme\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/dreijungfern\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/einhornrunde\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/flutgraben\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/hanskuehn-runde\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/jordans\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/jordans\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/odertal-runde\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/odertalsperre\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sperrlutter\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/teichtal\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/walpurgis\.html$ /sommer/hiking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/wiesenbluete\.html$ /sommer/hiking/ [R=301,L]
+
+    # Biking
+    RewriteRule ^andreasberg/de/frames/bike-sommer\.html$ /sommer/mountain-biking/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/bike-sommer\.html$ /sommer/mountain-biking/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/bike\.html$ /sommer/mountain-biking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/biketouren\.html$ /sommer/mountain-biking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/brockenritt\.html$ /sommer/mountain-biking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/inliner-sieber\.html$ /sommer/nordic-walking/ [R=301,L]
+
+    # Walking
+    RewriteRule ^andreasberg/de/frames/walking-sommer\.html$ /sommer/nordic-walking/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/walking-sommer\.html$ /sommer/nordic-walking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/walkingtouren\.html$ /sommer/nordic-walking/ [R=301,L]
+    RewriteRule ^bergsport/de/text/kulmke\.html$ /sommer/nordic-walking/ [R=301,L]
+
+    # Action / Adventure
+    RewriteRule ^andreasberg/de/text/action\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/hochseil\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/kanu\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/floss\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/klettern\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/bogen\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/spiel\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/schatz\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/bergbau\.html$ /sommer/adventure/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/hochseil\.html$ /sommer/adventure/ [R=301,L]
+
+    # ---- SIGHTS ----
+    RewriteRule ^andreasberg/de/text/sehenswertes\.html$ /sights/ [R=301,L]
+    RewriteRule ^andreasberg/de/frames/sehenswertes\.html$ /sights/ [R=301,L]
+    RewriteRule ^bergsport/de/text/sehenswertes\.html$ /sights/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/einhorn\.html$ /sights/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/oderberg\.html$ /sights/ [R=301,L]
+
+    # ---- IMPRESSUM ----
+    RewriteRule ^andreasberg/de/text/impressum\.html$ /impressum/ [R=301,L]
+    RewriteRule ^andreasberg/de/frames/impressum\.html$ /impressum/ [R=301,L]
+    RewriteRule ^bergsport/de/text/impressum\.html$ /impressum/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/impressum\.html$ /impressum/ [R=301,L]
+
+    # ---- DATENSCHUTZ ----
+    RewriteRule ^bergsport/de/text/datenschutz\.html$ /privacy-policy/ [R=301,L]
+    RewriteRule ^bergsport/de/frames/datenschutz\.html$ /privacy-policy/ [R=301,L]
+
+    # ---- SERVICE / ORT ----
+    RewriteRule ^andreasberg/de/frames/service\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/serviceangebot\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^bergsport/de/text/stadtplan\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/stadtplan-frame\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^andreasberg/de/frames/stadtplan\.html$ /about-sankt-andreasberg/ [R=301,L]
+
+    # ---- ACCOMODATIONS ----
+    RewriteRule ^andreasberg/de/text/datenbank\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^andreasberg/de/frames/daten\.html$ /about-sankt-andreasberg/ [R=301,L]
+    RewriteRule ^bergsport/de/text/datenbank\.html$ /about-sankt-andreasberg/ [R=301,L]
+
+    # ---- EVENTS ----
+    RewriteRule ^andreasberg/de/frames/veranstaltungen\.html$ /news/ [R=301,L]
+    RewriteRule ^andreasberg/de/frames/veran\.html$ /news/ [R=301,L]
+    RewriteRule ^andreasberg/de/text/veran\.html$ /news/ [R=301,L]
+
+    # ---- PAUSCHAL / BOOKING ----
+    RewriteRule ^andreasberg/de/text/pauschal\.html$ / [R=301,L]
+    RewriteRule ^andreasberg/de/text/pausch\.html$ / [R=301,L]
+    RewriteRule ^andreasberg/de/frames/pausch\.html$ / [R=301,L]
+    RewriteRule ^andreasberg/de/frames/buchungsanfrage\.html$ / [R=301,L]
+    RewriteRule ^andreasberg/de/text/buchungsanfrage\.html$ / [R=301,L]
+
+    # ---- WEATHER ----
+    RewriteRule ^andreasberg/de/frames/wetter\.html$ / [R=301,L]
+    RewriteRule ^bergsport/de/text/wetter\.html$ / [R=301,L]
+
+    # ---- LEGACY PATHS (catch-all for old subdirs) ----
+    RewriteRule ^andreasberg/(.*)$ / [R=301,L]
+    RewriteRule ^bergsport/(.*)$ / [R=301,L]
+
+    # ---- WordPress standard rules ----
+    RewriteBase /
+    RewriteRule ^index\.php$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L]
+
+</IfModule>

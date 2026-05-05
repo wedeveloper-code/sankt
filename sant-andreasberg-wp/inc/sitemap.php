@@ -8,8 +8,8 @@ defined('ABSPATH') || exit;
 
 add_action('admin_menu', function () {
     add_management_page(
-        __('Sitemap', 'sant-andreasberg'),
-        __('Sitemap', 'sant-andreasberg'),
+        __('Карта сайта', 'sant-andreasberg'),
+        __('Карта сайта', 'sant-andreasberg'),
         'manage_options',
         'sa-sitemap',
         'sa_sitemap_admin_page'
@@ -22,27 +22,27 @@ function sa_sitemap_admin_page(): void {
     $last_gen = $exists ? date_i18n(get_option('date_format') . ' ' . get_option('time_format'), filemtime($sitemap_path)) : '';
     ?>
     <div class="wrap">
-      <h1><?php esc_html_e('Sitemap.xml verwalten', 'sant-andreasberg'); ?></h1>
+      <h1><?php esc_html_e('Управление Sitemap.xml', 'sant-andreasberg'); ?></h1>
       <p>
-        <?php esc_html_e('Hier können Sie die sitemap.xml Datei für Ihre Website erstellen und aktualisieren.', 'sant-andreasberg'); ?>
+        <?php esc_html_e('Здесь вы можете создать и обновить файл sitemap.xml для вашего сайта.', 'sant-andreasberg'); ?>
       </p>
 
       <?php if ($exists): ?>
         <div class="notice notice-success inline">
           <p>
             <?php printf(
-                esc_html__('Sitemap vorhanden. Zuletzt aktualisiert: %s', 'sant-andreasberg'),
+                esc_html__('Карта сайта создана. Обновлена: %s', 'sant-andreasberg'),
                 '<strong>' . esc_html($last_gen) . '</strong>'
             ); ?>
             &mdash;
             <a href="<?php echo esc_url(home_url('/sitemap.xml')); ?>" target="_blank">
-              <?php esc_html_e('Sitemap ansehen', 'sant-andreasberg'); ?>
+              <?php esc_html_e('Посмотреть карту сайта', 'sant-andreasberg'); ?>
             </a>
           </p>
         </div>
       <?php else: ?>
         <div class="notice notice-warning inline">
-          <p><?php esc_html_e('Sitemap wurde noch nicht erstellt.', 'sant-andreasberg'); ?></p>
+          <p><?php esc_html_e('Карта сайта ещё не создана.', 'sant-andreasberg'); ?></p>
         </div>
       <?php endif; ?>
 
@@ -50,22 +50,22 @@ function sa_sitemap_admin_page(): void {
         <button
           id="sa-generate-sitemap"
           class="button button-primary button-large"
-          data-label="<?php esc_attr_e('Jetzt aktualisieren', 'sant-andreasberg'); ?>"
-          data-loading="<?php esc_attr_e('Wird generiert…', 'sant-andreasberg'); ?>"
+          data-label="<?php esc_attr_e('Обновить сейчас', 'sant-andreasberg'); ?>"
+          data-loading="<?php esc_attr_e('Генерация…', 'sant-andreasberg'); ?>"
         >
-          <?php esc_html_e('Jetzt aktualisieren', 'sant-andreasberg'); ?>
+          <?php esc_html_e('Обновить сейчас', 'sant-andreasberg'); ?>
         </button>
       </p>
       <p id="sa-sitemap-msg" style="font-weight:600;margin-top:.75rem"></p>
 
       <hr>
-      <h2><?php esc_html_e('Inhalt der Sitemap', 'sant-andreasberg'); ?></h2>
-      <p><?php esc_html_e('Folgende Einträge werden in die Sitemap aufgenommen:', 'sant-andreasberg'); ?></p>
+      <h2><?php esc_html_e('Содержимое карты сайта', 'sant-andreasberg'); ?></h2>
+      <p><?php esc_html_e('В карту сайта включены:', 'sant-andreasberg'); ?></p>
       <ul style="list-style:disc;padding-left:1.5em">
-        <li><?php esc_html_e('Startseite (Priorität 1.0, täglich)', 'sant-andreasberg'); ?></li>
-        <li><?php esc_html_e('Alle veröffentlichten Seiten (Priorität 0.8, monatlich)', 'sant-andreasberg'); ?></li>
-        <li><?php esc_html_e('Alle Kategorien mit mindestens einem Beitrag (Priorität 0.9, wöchentlich)', 'sant-andreasberg'); ?></li>
-        <li><?php esc_html_e('Alle veröffentlichten Beiträge (Priorität 0.7, wöchentlich)', 'sant-andreasberg'); ?></li>
+        <li><?php esc_html_e('Главная страница (приоритет 1.0, ежедневно)', 'sant-andreasberg'); ?></li>
+        <li><?php esc_html_e('Все опубликованные страницы (приоритет 0.8, ежемесячно)', 'sant-andreasberg'); ?></li>
+        <li><?php esc_html_e('Все категории с записями (приоритет 0.9, еженедельно)', 'sant-andreasberg'); ?></li>
+        <li><?php esc_html_e('Все опубликованные записи (приоритет 0.7, еженедельно)', 'sant-andreasberg'); ?></li>
       </ul>
     </div>
 
@@ -83,13 +83,13 @@ function sa_sitemap_admin_page(): void {
         fetch('<?php echo esc_js(admin_url('admin-ajax.php')); ?>', { method: 'POST', body: fd })
           .then(function(r){ return r.json(); })
           .then(function(d){
-            msg.textContent = d.success ? (d.data || '<?php echo esc_js(__('Sitemap erfolgreich erstellt!', 'sant-andreasberg')); ?>') : ('Fehler: ' + (d.data || '?'));
+            msg.textContent = d.success ? (d.data || '<?php echo esc_js(__('Карта сайта успешно создана!', 'sant-andreasberg')); ?>') : ('Ошибка: ' + (d.data || '?'));
             msg.style.color = d.success ? 'green' : 'red';
             btn.disabled = false;
             btn.textContent = btn.dataset.label;
           })
           .catch(function(){
-            msg.textContent = '<?php echo esc_js(__('Netzwerkfehler', 'sant-andreasberg')); ?>';
+            msg.textContent = '<?php echo esc_js(__('Ошибка сети', 'sant-andreasberg')); ?>';
             msg.style.color = 'red';
             btn.disabled = false;
             btn.textContent = btn.dataset.label;
@@ -104,11 +104,11 @@ function sa_sitemap_admin_page(): void {
 add_action('wp_ajax_sa_generate_sitemap', function () {
     check_ajax_referer('sa_generate_sitemap', 'nonce');
     if (!current_user_can('manage_options')) {
-        wp_send_json_error(__('Kein Zugriff.', 'sant-andreasberg'));
+        wp_send_json_error(__('Нет доступа.', 'sant-andreasberg'));
     }
     $result = sa_build_sitemap();
     if ($result === true) {
-        wp_send_json_success(__('Sitemap erfolgreich erstellt!', 'sant-andreasberg'));
+        wp_send_json_success(__('Карта сайта успешно создана!', 'sant-andreasberg'));
     } else {
         wp_send_json_error($result);
     }
@@ -187,7 +187,7 @@ function sa_build_sitemap(): bool|string {
     $path = ABSPATH . 'sitemap.xml';
     $written = file_put_contents($path, $xml);
     if ($written === false) {
-        return __('Fehler: Datei konnte nicht geschrieben werden. Bitte prüfen Sie die Schreibrechte auf dem Server.', 'sant-andreasberg');
+        return __('Ошибка: не удалось записать файл. Проверьте права доступа на сервере.', 'sant-andreasberg');
     }
     return true;
 }

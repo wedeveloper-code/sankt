@@ -32,11 +32,11 @@ if ($meta_desc): ?>
         </a>
       <?php endif; ?>
 
-      <button class="nav-toggle" aria-label="<?php esc_attr_e('Menü öffnen', 'sant-andreasberg'); ?>" aria-expanded="false" aria-controls="main-nav">
+      <button class="nav-toggle" aria-label="<?php esc_attr_e('Открыть меню', 'sant-andreasberg'); ?>" aria-expanded="false" aria-controls="main-nav">
         <span></span><span></span><span></span>
       </button>
 
-      <nav id="main-nav" aria-label="<?php esc_attr_e('Hauptnavigation', 'sant-andreasberg'); ?>">
+      <nav id="main-nav" aria-label="<?php esc_attr_e('Главная навигация', 'sant-andreasberg'); ?>">
         <?php
         wp_nav_menu([
             'theme_location' => 'primary',

@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 add_action('add_meta_boxes', function () {
     add_meta_box(
         'sa_seo_meta',
-        __('SEO & Meta-Angaben', 'sant-andreasberg'),
+        __('SEO и мета-теги', 'sant-andreasberg'),
         'sa_seo_meta_box_html',
         ['post', 'page'],
         'normal',
@@ -26,29 +26,29 @@ function sa_seo_meta_box_html(WP_Post $post): void {
     ?>
     <table class="form-table" style="max-width:900px">
       <tr>
-        <th scope="row"><label for="sa_meta_h1"><?php esc_html_e('H1-Überschrift', 'sant-andreasberg'); ?></label></th>
+        <th scope="row"><label for="sa_meta_h1"><?php esc_html_e('Заголовок H1', 'sant-andreasberg'); ?></label></th>
         <td>
           <input type="text" id="sa_meta_h1" name="sa_meta_h1" value="<?php echo esc_attr($h1); ?>" class="large-text">
-          <p class="description"><?php esc_html_e('Überschrift H1 auf der Seite (leer = Seitentitel aus WordPress).', 'sant-andreasberg'); ?></p>
+          <p class="description"><?php esc_html_e('Заголовок H1 на странице (пусто = стандартный заголовок WordPress).', 'sant-andreasberg'); ?></p>
         </td>
       </tr>
       <tr>
-        <th scope="row"><label for="sa_meta_title"><?php esc_html_e('Meta-Title (SEO)', 'sant-andreasberg'); ?></label></th>
+        <th scope="row"><label for="sa_meta_title"><?php esc_html_e('Мета-заголовок (SEO)', 'sant-andreasberg'); ?></label></th>
         <td>
           <input type="text" id="sa_meta_title" name="sa_meta_title" value="<?php echo esc_attr($title); ?>" class="large-text">
-          <p class="description"><?php esc_html_e('Titel im Browser-Tab und in Google (leer = WordPress-Standard).', 'sant-andreasberg'); ?></p>
+          <p class="description"><?php esc_html_e('Заголовок в браузере и Google (пусто = стандарт WordPress).', 'sant-andreasberg'); ?></p>
           <p class="description sa-char-count" data-for="sa_meta_title" data-max="60">
-            <span class="count">0</span>/60 <?php esc_html_e('Zeichen', 'sant-andreasberg'); ?>
+            <span class="count">0</span>/60 <?php esc_html_e('символов', 'sant-andreasberg'); ?>
           </p>
         </td>
       </tr>
       <tr>
-        <th scope="row"><label for="sa_meta_description"><?php esc_html_e('Meta-Description (SEO)', 'sant-andreasberg'); ?></label></th>
+        <th scope="row"><label for="sa_meta_description"><?php esc_html_e('Мета-описание (SEO)', 'sant-andreasberg'); ?></label></th>
         <td>
           <textarea id="sa_meta_description" name="sa_meta_description" rows="3" class="large-text"><?php echo esc_textarea($desc); ?></textarea>
-          <p class="description"><?php esc_html_e('Beschreibung für Google-Snippet (empfohlen: 120–160 Zeichen).', 'sant-andreasberg'); ?></p>
+          <p class="description"><?php esc_html_e('Описание для сниппета Google (рекомендуется: 120–160 символов).', 'sant-andreasberg'); ?></p>
           <p class="description sa-char-count" data-for="sa_meta_description" data-max="160">
-            <span class="count">0</span>/160 <?php esc_html_e('Zeichen', 'sant-andreasberg'); ?>
+            <span class="count">0</span>/160 <?php esc_html_e('символов', 'sant-andreasberg'); ?>
           </p>
         </td>
       </tr>
@@ -95,17 +95,17 @@ function sa_cat_meta_fields(): void {
     wp_nonce_field('sa_cat_meta_save', 'sa_cat_meta_nonce');
     ?>
     <div class="form-field">
-      <label for="sa_cat_h1"><?php esc_html_e('H1-Überschrift', 'sant-andreasberg'); ?></label>
+      <label for="sa_cat_h1"><?php esc_html_e('Заголовок H1', 'sant-andreasberg'); ?></label>
       <input type="text" name="sa_cat_h1" id="sa_cat_h1" value="">
     </div>
     <div class="form-field">
-      <label for="sa_cat_title"><?php esc_html_e('Meta-Title (SEO)', 'sant-andreasberg'); ?></label>
+      <label for="sa_cat_title"><?php esc_html_e('Мета-заголовок (SEO)', 'sant-andreasberg'); ?></label>
       <input type="text" name="sa_cat_title" id="sa_cat_title" value="">
     </div>
     <div class="form-field">
-      <label for="sa_cat_description_seo"><?php esc_html_e('Meta-Description (SEO)', 'sant-andreasberg'); ?></label>
+      <label for="sa_cat_description_seo"><?php esc_html_e('Мета-описание (SEO)', 'sant-andreasberg'); ?></label>
       <textarea name="sa_cat_description_seo" id="sa_cat_description_seo" rows="3"></textarea>
-      <p><?php esc_html_e('Wird in der Google-Suche angezeigt (120–160 Zeichen empfohlen).', 'sant-andreasberg'); ?></p>
+      <p><?php esc_html_e('Отображается в поиске Google (рекомендуется 120–160 символов).', 'sant-andreasberg'); ?></p>
     </div>
     <?php
 }
@@ -117,15 +117,15 @@ function sa_cat_edit_meta_fields(WP_Term $term): void {
     $desc  = get_term_meta($term->term_id, 'sa_meta_description', true);
     ?>
     <tr class="form-field">
-      <th scope="row"><label for="sa_cat_h1"><?php esc_html_e('H1-Überschrift', 'sant-andreasberg'); ?></label></th>
+      <th scope="row"><label for="sa_cat_h1"><?php esc_html_e('Заголовок H1', 'sant-andreasberg'); ?></label></th>
       <td><input type="text" name="sa_cat_h1" id="sa_cat_h1" value="<?php echo esc_attr($h1); ?>"></td>
     </tr>
     <tr class="form-field">
-      <th scope="row"><label for="sa_cat_title"><?php esc_html_e('Meta-Title (SEO)', 'sant-andreasberg'); ?></label></th>
+      <th scope="row"><label for="sa_cat_title"><?php esc_html_e('Мета-заголовок (SEO)', 'sant-andreasberg'); ?></label></th>
       <td><input type="text" name="sa_cat_title" id="sa_cat_title" value="<?php echo esc_attr($title); ?>"></td>
     </tr>
     <tr class="form-field">
-      <th scope="row"><label for="sa_cat_description_seo"><?php esc_html_e('Meta-Description (SEO)', 'sant-andreasberg'); ?></label></th>
+      <th scope="row"><label for="sa_cat_description_seo"><?php esc_html_e('Мета-описание (SEO)', 'sant-andreasberg'); ?></label></th>
       <td>
         <textarea name="sa_cat_description_seo" id="sa_cat_description_seo" rows="3"><?php echo esc_textarea($desc); ?></textarea>
       </td>
@@ -147,13 +147,13 @@ function sa_save_cat_meta(int $term_id): void {
 /* ---- Homepage meta via Customizer ---- */
 add_action('customize_register', function (WP_Customize_Manager $wp_customize) {
     $wp_customize->add_section('sa_homepage_meta', [
-        'title'    => __('Startseite – SEO Meta', 'sant-andreasberg'),
+        'title'    => __('Главная страница — SEO', 'sant-andreasberg'),
         'priority' => 160,
     ]);
     foreach ([
-        'sa_home_meta_h1'          => __('H1-Überschrift der Startseite', 'sant-andreasberg'),
-        'sa_home_meta_title'       => __('Meta-Title der Startseite', 'sant-andreasberg'),
-        'sa_home_meta_description' => __('Meta-Description der Startseite', 'sant-andreasberg'),
+        'sa_home_meta_h1'          => __('Заголовок H1 главной страницы', 'sant-andreasberg'),
+        'sa_home_meta_title'       => __('Мета-заголовок главной страницы', 'sant-andreasberg'),
+        'sa_home_meta_description' => __('Мета-описание главной страницы', 'sant-andreasberg'),
     ] as $id => $label) {
         $wp_customize->add_setting($id, ['sanitize_callback' => 'sanitize_text_field', 'transport' => 'refresh']);
         $wp_customize->add_control($id, ['label' => $label, 'section' => 'sa_homepage_meta', 'type' => 'text']);

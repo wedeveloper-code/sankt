@@ -26,8 +26,8 @@ add_action('after_setup_theme', function () {
     ]);
 
     register_nav_menus([
-        'primary' => __('Hauptmenü', 'sant-andreasberg'),
-        'footer'  => __('Fußzeilen-Menü', 'sant-andreasberg'),
+        'primary' => __('Главное меню', 'sant-andreasberg'),
+        'footer'  => __('Меню подвала', 'sant-andreasberg'),
     ]);
 
     add_image_size('sa-card',      640, 360, true);
@@ -99,16 +99,16 @@ add_filter('excerpt_more', fn() => '…');
    ============================================= */
 add_action('widgets_init', function () {
     register_sidebar([
-        'name'          => __('Seiten-Sidebar', 'sant-andreasberg'),
+        'name'          => __('Боковая панель', 'sant-andreasberg'),
         'id'            => 'sidebar-main',
-        'description'   => __('Widgets für die rechte Seiten-Spalte.', 'sant-andreasberg'),
+        'description'   => __('Виджеты для правой боковой колонки.', 'sant-andreasberg'),
         'before_widget' => '<div id="%1$s" class="sidebar-widget %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3>',
         'after_title'   => '</h3>',
     ]);
     register_sidebar([
-        'name'          => __('Footer Spalte 1', 'sant-andreasberg'),
+        'name'          => __('Подвал — колонка 1', 'sant-andreasberg'),
         'id'            => 'footer-1',
         'before_widget' => '<div class="%2$s">',
         'after_widget'  => '</div>',
@@ -116,7 +116,7 @@ add_action('widgets_init', function () {
         'after_title'   => '</h4>',
     ]);
     register_sidebar([
-        'name'          => __('Footer Spalte 2', 'sant-andreasberg'),
+        'name'          => __('Подвал — колонка 2', 'sant-andreasberg'),
         'id'            => 'footer-2',
         'before_widget' => '<div class="%2$s">',
         'after_widget'  => '</div>',
@@ -130,7 +130,7 @@ add_action('widgets_init', function () {
    ============================================= */
 function sa_breadcrumb() {
     echo '<nav class="breadcrumb" aria-label="Breadcrumb"><div class="container">';
-    echo '<span><a href="' . esc_url(home_url('/')) . '">' . __('Startseite', 'sant-andreasberg') . '</a></span>';
+    echo '<span><a href="' . esc_url(home_url('/')) . '">' . __('Главная', 'sant-andreasberg') . '</a></span>';
 
     if (is_category()) {
         echo '<span>' . single_cat_title('', false) . '</span>';
@@ -147,7 +147,7 @@ function sa_breadcrumb() {
         }
         echo '<span>' . esc_html(get_the_title()) . '</span>';
     } elseif (is_search()) {
-        echo '<span>' . sprintf(__('Suche: %s', 'sant-andreasberg'), esc_html(get_search_query())) . '</span>';
+        echo '<span>' . sprintf(__('Поиск: %s', 'sant-andreasberg'), esc_html(get_search_query())) . '</span>';
     } elseif (is_404()) {
         echo '<span>404</span>';
     }

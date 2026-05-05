@@ -12,6 +12,7 @@ require SA_DIR . '/inc/import/pages.php';
 require SA_DIR . '/inc/import/posts-winter.php';
 require SA_DIR . '/inc/import/posts-summer.php';
 require SA_DIR . '/inc/import/menus.php';
+require SA_DIR . '/inc/import/images.php';
 
 add_action('after_switch_theme', function () {
     if (get_option('sa_content_imported')) {

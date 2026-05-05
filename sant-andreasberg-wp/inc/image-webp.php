@@ -8,10 +8,10 @@ defined('ABSPATH') || exit;
 
 add_filter('wp_handle_upload', function (array $file): array {
     $mime = $file['type'] ?? '';
-    $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff', 'image/webp'];
+    $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff'];
 
     if (!in_array($mime, $allowed, true)) {
-        return $file;
+        return $file; // skip non-images and already-WebP files
     }
 
     if (!function_exists('imagewebp')) {
@@ -21,10 +21,6 @@ add_filter('wp_handle_upload', function (array $file): array {
 
     $source_path = $file['file'];
     $webp_path   = preg_replace('/\.(jpe?g|png|gif|bmp|tiff?)$/i', '.webp', $source_path);
-    if ($webp_path === $source_path) {
-        /* Already webp */
-        $webp_path = $source_path . '.webp';
-    }
 
     $image = sa_load_image($source_path, $mime);
     if (!$image) {

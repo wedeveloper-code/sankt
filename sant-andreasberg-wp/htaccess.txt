@@ -6,10 +6,17 @@
 # (rename from htaccess.txt to .htaccess)
 
 # --- PHP settings ---
-php_value upload_max_filesize 64M
-php_value post_max_size 64M
-php_value max_execution_time 300
-php_value memory_limit 256M
+# NOTE: php_value only works with mod_php. For PHP-FPM set these in php.ini or wp-config.php:
+#   define('WP_MEMORY_LIMIT', '256M');        (wp-config.php)
+#   upload_max_filesize = 64M                 (php.ini / .user.ini)
+#   post_max_size = 64M
+#   max_execution_time = 300
+<IfModule mod_php.c>
+    php_value upload_max_filesize 64M
+    php_value post_max_size 64M
+    php_value max_execution_time 300
+    php_value memory_limit 256M
+</IfModule>
 
 # --- Security headers ---
 <IfModule mod_headers.c>
@@ -41,6 +48,11 @@ php_value memory_limit 256M
 # --- 301 REDIRECTS: old site → new site ---
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
+    # ---- HTTPS redirect (remove if SSL is not yet configured) ----
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
     # ---- OLD HOMEPAGE / FRAMESET ----
     RewriteRule ^index\.html$ / [R=301,L]

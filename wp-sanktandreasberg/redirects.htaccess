@@ -1,0 +1,134 @@
+# 301 Redirects: Old site (sant-andreasberg.com) → New WordPress site
+# Add these rules to the WordPress .htaccess file, BEFORE the WordPress rewrite block.
+# WordPress rewrite block starts with: # BEGIN WordPress
+
+# ============================================================
+# Bergsport Arena old site → New WordPress URLs
+# ============================================================
+
+# Homepage / Index
+RewriteRule ^bergsport/de/frames/index\.html$ / [R=301,L]
+RewriteRule ^bergsport/de/text/index\.html$ / [R=301,L]
+RewriteRule ^andreasberg/de/frames/index\.html$ / [R=301,L]
+
+# Geschichte (History)
+RewriteRule ^bergsport/de/frames/geschichte\.html$ /geschichte/ [R=301,L]
+RewriteRule ^bergsport/de/text/geschichte\.html$ /geschichte/ [R=301,L]
+RewriteRule ^andreasberg/de/text/stadtgeschichte\.html$ /geschichte/ [R=301,L]
+
+# Stadt-Info
+RewriteRule ^bergsport/de/text/info\.html$ /geschichte/ [R=301,L]
+RewriteRule ^bergsport/de/frames/info\.html$ /geschichte/ [R=301,L]
+
+# Aktiv / Erleben
+RewriteRule ^bergsport/de/frames/aktiv\.html$ /erleben/ [R=301,L]
+RewriteRule ^bergsport/de/text/aktiv\.html$ /erleben/ [R=301,L]
+
+# Wandertouren → Routen-Archiv
+RewriteRule ^bergsport/de/text/wandertouren\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/frames/wandertouren\.html$ /routen/ [R=301,L]
+
+# Individual hiking routes → route CPT
+RewriteRule ^bergsport/de/text/freibiersquelle\.html$ /routen/freibiersquelle/ [R=301,L]
+RewriteRule ^bergsport/de/text/galgenberg\.html$ /routen/galgenberg/ [R=301,L]
+RewriteRule ^bergsport/de/text/hoehenweg\.html$ /routen/hoehenwanderweg/ [R=301,L]
+RewriteRule ^bergsport/de/text/rehbergrunde\.html$ /routen/rehberg-runde/ [R=301,L]
+RewriteRule ^bergsport/de/text/sieberberg\.html$ /routen/sieberberg/ [R=301,L]
+RewriteRule ^bergsport/de/text/silberteich\.html$ /routen/silberteich/ [R=301,L]
+RewriteRule ^bergsport/de/text/skikreuz\.html$ /routen/skikreuz-wanderung/ [R=301,L]
+RewriteRule ^bergsport/de/text/skikreuz-runde\.html$ /routen/skikreuz-runde/ [R=301,L]
+RewriteRule ^bergsport/de/text/sonnenberg\.html$ /routen/sonnenberg-wanderung/ [R=301,L]
+RewriteRule ^bergsport/de/text/wolfswarte\.html$ /routen/wolfswarte/ [R=301,L]
+RewriteRule ^bergsport/de/text/bismark\.html$ /routen/bismarckturm-wanderung/ [R=301,L]
+RewriteRule ^bergsport/de/text/flutgraben\.html$ /routen/clausthaler-flutgraben/ [R=301,L]
+RewriteRule ^bergsport/de/text/achtermann-wandern\.html$ /routen/achtermann-wanderung/ [R=301,L]
+RewriteRule ^bergsport/de/text/oderberg-runde\.html$ /routen/oderberg-runde-wandern/ [R=301,L]
+RewriteRule ^bergsport/de/text/rinderstall\.html$ /routen/rinderstall-wanderung/ [R=301,L]
+RewriteRule ^bergsport/de/text/andreasheim\.html$ /routen/andreasheim-nordic/ [R=301,L]
+
+# MTB / Biketouren → Routen
+RewriteRule ^bergsport/de/text/biketouren\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/frames/biketouren\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/text/drei-tuerme\.html$ /routen/drei-tuerme-tour/ [R=301,L]
+RewriteRule ^bergsport/de/text/sonnenrunde\.html$ /routen/sonnenberg-runde-mtb/ [R=301,L]
+RewriteRule ^bergsport/de/text/einhornrunde\.html$ /routen/einhornhoehle-runde/ [R=301,L]
+RewriteRule ^bergsport/de/text/brockenritt\.html$ /routen/brockenritt/ [R=301,L]
+RewriteRule ^bergsport/de/text/sperrlutter\.html$ /routen/sperrlutter-runde/ [R=301,L]
+RewriteRule ^bergsport/de/text/odertalsperre\.html$ /routen/odertalsperren-runde/ [R=301,L]
+RewriteRule ^bergsport/de/text/odertal-runde\.html$ /routen/odertal-runde/ [R=301,L]
+RewriteRule ^bergsport/de/text/hanskuehn-runde\.html$ /routen/hanskuehn-burg-runde/ [R=301,L]
+
+# Nordic Walking
+RewriteRule ^bergsport/de/text/walkingtouren\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/text/hoehenwalk\.html$ /routen/hoehenweg-nordic/ [R=301,L]
+RewriteRule ^bergsport/de/text/inliner-sieber\.html$ /routen/inliner-sieber-nordic/ [R=301,L]
+RewriteRule ^bergsport/de/text/dreijungfern\.html$ /routen/dreijungfern-nordic/ [R=301,L]
+RewriteRule ^bergsport/de/text/kleiner-oderberg\.html$ /routen/kleiner-oderberg-nordic/ [R=301,L]
+
+# Loipen (Ski cross-country)
+RewriteRule ^bergsport/de/text/loipen\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/frames/loipen\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/text/beerberg\.html$ /routen/beerberg-loipe/ [R=301,L]
+RewriteRule ^bergsport/de/text/jordans\.html$ /routen/jordanshoehe-loipe/ [R=301,L]
+RewriteRule ^bergsport/de/text/oderberg\.html$ /routen/oderberg-loipe/ [R=301,L]
+RewriteRule ^bergsport/de/text/schneewittchenloipe\.html$ /routen/schneewittchen-loipe/ [R=301,L]
+RewriteRule ^bergsport/de/text/sonnenberg-loipe\.html$ /routen/sonnenberg-loipe/ [R=301,L]
+RewriteRule ^bergsport/de/text/achtermann\.html$ /routen/achtermann-loipe/ [R=301,L]
+
+# Winterwandern / Schneeschuh
+RewriteRule ^bergsport/de/text/winter-wandern\.html$ /routen/ [R=301,L]
+RewriteRule ^bergsport/de/text/msb-winter\.html$ /routen/msb-winter/ [R=301,L]
+RewriteRule ^bergsport/de/text/winter-sieberberg\.html$ /routen/sieberberg-winter/ [R=301,L]
+RewriteRule ^bergsport/de/text/sonnenberg-winter\.html$ /routen/sonnenberg-winter/ [R=301,L]
+
+# Sehenswürdigkeiten
+RewriteRule ^bergsport/de/text/sehenswertes\.html$ /sehenswuerdigkeiten/ [R=301,L]
+RewriteRule ^bergsport/de/frames/sehenswertes\.html$ /sehenswuerdigkeiten/ [R=301,L]
+RewriteRule ^andreasberg/de/text/bergbau\.html$ /sehenswuerdigkeiten/grube-samson/ [R=301,L]
+RewriteRule ^bergsport/de/text/msb\.html$ /sehenswuerdigkeiten/ [R=301,L]
+
+# Winter & Sommer
+RewriteRule ^bergsport/de/frames/winter\.html$ /winter-sommer/ [R=301,L]
+RewriteRule ^bergsport/de/text/winter\.html$ /winter-sommer/ [R=301,L]
+RewriteRule ^bergsport/de/frames/sommer\.html$ /winter-sommer/ [R=301,L]
+RewriteRule ^bergsport/de/text/sommer\.html$ /winter-sommer/ [R=301,L]
+RewriteRule ^bergsport/de/text/pisten\.html$ /winter-sommer/ [R=301,L]
+RewriteRule ^bergsport/de/text/rodeln\.html$ /winter-sommer/ [R=301,L]
+RewriteRule ^bergsport/de/text/sonnenberg-rodeln\.html$ /winter-sommer/ [R=301,L]
+
+# Unterkunft / Gastronomie (City Directory A-Z)
+RewriteRule ^bergsport/de/text/a-z\.html$ /unterkunft-gastronomie/ [R=301,L]
+RewriteRule ^bergsport/de/frames/a-z\.html$ /unterkunft-gastronomie/ [R=301,L]
+
+# Kontakt
+RewriteRule ^bergsport/de/frames/kontakt\.html$ /kontakt/ [R=301,L]
+RewriteRule ^bergsport/de/text/kontakt\.html$ /kontakt/ [R=301,L]
+
+# Leben vor Ort
+RewriteRule ^bergsport/de/frames/leben\.html$ /leben-vor-ort/ [R=301,L]
+
+# Impressum / Datenschutz
+RewriteRule ^bergsport/de/text/impressum\.html$ /impressum/ [R=301,L]
+RewriteRule ^bergsport/de/frames/impressum\.html$ /impressum/ [R=301,L]
+RewriteRule ^bergsport/de/text/datenschutz\.html$ /datenschutz/ [R=301,L]
+
+# Wetter / Stadtplan / Links
+RewriteRule ^bergsport/de/text/wetter\.html$ / [R=301,L]
+RewriteRule ^bergsport/de/text/stadtplan\.html$ /kontakt/ [R=301,L]
+RewriteRule ^bergsport/de/text/links\.html$ / [R=301,L]
+
+# Walpurgis / Events
+RewriteRule ^bergsport/de/text/walpurgis\.html$ /veranstaltungen/ [R=301,L]
+RewriteRule ^bergsport/de/text/harzfest\.html$ /veranstaltungen/ [R=301,L] 2>/dev/null
+RewriteRule ^bergsport/de/text/wiesenbluete\.html$ /veranstaltungen/ [R=301,L]
+
+# Andreasberg sub-site (old hotel/lodge site) → Business directory
+RewriteRule ^andreasberg/de/frames/index\.html$ /unterkunft-gastronomie/ [R=301,L]
+RewriteRule ^andreasberg/de/text/unterkunft\.html$ /unterkunft-gastronomie/ [R=301,L]
+RewriteRule ^andreasberg/de/text/hotel\.html$ /unterkunft-gastronomie/hotel-glockenberg/ [R=301,L]
+RewriteRule ^andreasberg/de/text/pension\.html$ /unterkunft-gastronomie/ [R=301,L]
+RewriteRule ^andreasberg/de/text/ferienwohnung\.html$ /unterkunft-gastronomie/ [R=301,L]
+
+# Catch-all: unknown old pages → Homepage
+RewriteRule ^bergsport/de/(.*)$ / [R=301,L]
+RewriteRule ^andreasberg/de/(.*)$ / [R=301,L]

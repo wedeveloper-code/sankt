@@ -133,19 +133,19 @@
 		</div>
 		<div class="discover-grid">
 			<a class="card news-card" href="<?php echo esc_url( get_post_type_archive_link( 'event' ) ); ?>">
-				<div class="photo" style="height:150px"></div>
+				<div class="photo event" style="height:150px"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Veranstaltungen', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Alle Events & Termine', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Entdecken', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 			<a class="card news-card" href="<?php echo esc_url( home_url( '/erleben/' ) ); ?>">
-				<div class="photo" style="height:150px"></div>
+				<div class="photo forest" style="height:150px"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Erleben', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Aktivitäten & Ausflugsziele', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Entdecken', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 			<a class="card news-card" href="<?php echo esc_url( get_post_type_archive_link( 'business' ) ); ?>">
-				<div class="photo" style="height:150px"></div>
+				<div class="photo hotel" style="height:150px"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Unterkünfte', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Übernachten & Wohlfühlen', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Finden', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 			<a class="card news-card" href="<?php echo esc_url( get_post_type_archive_link( 'business' ) ); ?>">
-				<div class="photo" style="height:150px"></div>
+				<div class="photo gastro" style="height:150px"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Gastronomie', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Essen & Genießen', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Genießen', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 		</div>

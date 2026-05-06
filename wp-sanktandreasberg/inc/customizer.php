@@ -32,11 +32,13 @@ function sab_customizer_register( \WP_Customize_Manager $wp_customize ): void {
 		'panel' => 'sab_panel',
 	] );
 	foreach ( [
-		'sab_weather_url'    => __( 'Wetter-URL', 'wp-sanktandreasberg' ),
-		'sab_webcam_url'     => __( 'Webcam-URL', 'wp-sanktandreasberg' ),
-		'sab_map_url'        => __( 'Karte-URL', 'wp-sanktandreasberg' ),
-		'sab_directions_url' => __( 'Anreise-URL', 'wp-sanktandreasberg' ),
-		'sab_newsletter_url' => __( 'Newsletter-URL', 'wp-sanktandreasberg' ),
+		'sab_weather_url'       => __( 'Wetter-URL', 'wp-sanktandreasberg' ),
+		'sab_webcam_url'        => __( 'Webcam-URL', 'wp-sanktandreasberg' ),
+		'sab_map_url'           => __( 'Karte-URL', 'wp-sanktandreasberg' ),
+		'sab_directions_url'    => __( 'Anreise-URL', 'wp-sanktandreasberg' ),
+		'sab_newsletter_url'    => __( 'Newsletter-URL', 'wp-sanktandreasberg' ),
+		'sab_season_winter_url' => __( 'Winter-Seite URL', 'wp-sanktandreasberg' ),
+		'sab_season_summer_url' => __( 'Sommer-Seite URL', 'wp-sanktandreasberg' ),
 	] as $id => $label ) {
 		$wp_customize->add_setting( $id, [ 'default' => '#', 'sanitize_callback' => 'esc_url_raw' ] );
 		$wp_customize->add_control( $id, [ 'label' => $label, 'section' => 'sab_links', 'type' => 'url' ] );

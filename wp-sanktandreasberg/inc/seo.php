@@ -70,7 +70,7 @@ function sab_output_json_ld(): void {
 				'latitude'  => 51.6547,
 				'longitude' => 10.5269,
 			],
-			'touristType' => [ 'Wanderer', 'Wintersporturlauber', 'Familien', 'Kulturreisende' ],
+			'keywords'    => 'Wandern, Wintersport, Familien, Kultur, Harz, Nationalpark',
 		] );
 		return;
 	}

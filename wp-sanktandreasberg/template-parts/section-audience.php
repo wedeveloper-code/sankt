@@ -1,5 +1,5 @@
 <?php
-$anreise_url = get_theme_mod( 'sab_anreise_url', home_url( '/anreise/' ) );
+$anreise_url = get_theme_mod( 'sab_directions_url', home_url( '/anreise/' ) );
 $info_url    = home_url( '/leben-vor-ort/' );
 ?>
 <section id="audience" class="section cream">

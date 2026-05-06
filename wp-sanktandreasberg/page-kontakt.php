@@ -8,14 +8,14 @@ $errors  = [];
 $values  = [];
 
 if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST['sab_contact_nonce'] ) ) {
-	if ( ! wp_verify_nonce( $_POST['sab_contact_nonce'], 'sab_contact_form' ) ) {
+	if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['sab_contact_nonce'] ) ), 'sab_contact_form' ) ) {
 		$errors[] = __( 'Sicherheitsfehler. Bitte versuchen Sie es erneut.', 'wp-sanktandreasberg' );
 	} else {
-		$values['name']    = sanitize_text_field( $_POST['contact_name'] ?? '' );
-		$values['email']   = sanitize_email( $_POST['contact_email'] ?? '' );
-		$values['phone']   = sanitize_text_field( $_POST['contact_phone'] ?? '' );
-		$values['subject'] = sanitize_text_field( $_POST['contact_subject'] ?? '' );
-		$values['message'] = sanitize_textarea_field( $_POST['contact_message'] ?? '' );
+		$values['name']    = sanitize_text_field( wp_unslash( $_POST['contact_name']    ?? '' ) );
+		$values['email']   = sanitize_email(      wp_unslash( $_POST['contact_email']   ?? '' ) );
+		$values['phone']   = sanitize_text_field( wp_unslash( $_POST['contact_phone']   ?? '' ) );
+		$values['subject'] = sanitize_text_field( wp_unslash( $_POST['contact_subject'] ?? '' ) );
+		$values['message'] = sanitize_textarea_field( wp_unslash( $_POST['contact_message'] ?? '' ) );
 		$values['privacy'] = isset( $_POST['contact_privacy'] );
 
 		if ( empty( $values['name'] ) ) $errors[] = __( 'Bitte geben Sie Ihren Namen an.', 'wp-sanktandreasberg' );
@@ -159,7 +159,7 @@ get_header(); ?>
 				<section class="card side-card">
 					<h3><?php esc_html_e( 'Anfahrt', 'wp-sanktandreasberg' ); ?></h3>
 					<div class="map-preview" role="img" aria-label="<?php esc_attr_e( 'Karte Tourist-Information', 'wp-sanktandreasberg' ); ?>"></div>
-					<?php $anreise_url = get_theme_mod( 'sab_anreise_url', '#' ); ?>
+					<?php $anreise_url = get_theme_mod( 'sab_directions_url', '#' ); ?>
 					<a class="link" style="margin-top:10px;display:block" href="<?php echo esc_url( $anreise_url ); ?>"><?php esc_html_e( 'Route planen', 'wp-sanktandreasberg' ); ?> →</a>
 				</section>
 

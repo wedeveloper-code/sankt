@@ -78,29 +78,41 @@ get_header(); ?>
 					<?php endif; ?>
 				<?php endwhile; endif; ?>
 
+				<?php
+				$samson_post  = get_page_by_path( 'grube-samson-saison-2025', OBJECT, 'post' );
+				$samson_url   = $samson_post ? get_permalink( $samson_post->ID ) : home_url( '/aktuelles/grube-samson-saison-2025/' );
+				$samson_thumb = ( $samson_post && has_post_thumbnail( $samson_post->ID ) )
+					? get_the_post_thumbnail_url( $samson_post->ID, 'medium_large' )
+					: ( get_theme_mod( 'sab_hero_geschichte', '' ) ?: 'https://images.unsplash.com/photo-1534870330274-5f7a3485702b?auto=format&fit=crop&w=800&q=80' );
+
+				$unesco_place = get_posts( [ 'post_type' => 'place', 'name' => 'oberharzer-wasserregal', 'posts_per_page' => 1 ] );
+				$unesco_url   = $unesco_place ? get_permalink( $unesco_place[0]->ID ) : get_post_type_archive_link( 'place' );
+				$img_geschichte = get_theme_mod( 'sab_hero_geschichte', '' ) ?: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80';
+				$img_stadt      = get_theme_mod( 'sab_hero_geschichte', '' ) ?: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80';
+				?>
 				<div class="tile-grid" style="margin-top:24px">
 					<article class="card tile">
-						<div class="photo mine"></div>
+						<div class="photo" style="background-image:url('<?php echo esc_url( $samson_thumb ); ?>')"></div>
 						<div class="card-body">
 							<h3><?php esc_html_e( 'Grube Samson', 'wp-sanktandreasberg' ); ?></h3>
 							<p><?php esc_html_e( 'Das bedeutendste Bergbau-Denkmal im Oberharz.', 'wp-sanktandreasberg' ); ?></p>
-							<a class="link" href="<?php echo esc_url( get_post_type_archive_link( 'place' ) ); ?>"><?php esc_html_e( 'Mehr erfahren', 'wp-sanktandreasberg' ); ?> →</a>
+							<a class="link" href="<?php echo esc_url( $samson_url ); ?>"><?php esc_html_e( 'Mehr erfahren', 'wp-sanktandreasberg' ); ?> →</a>
 						</div>
 					</article>
 					<article class="card tile">
-						<div class="photo forest"></div>
+						<div class="photo" style="background-image:url('<?php echo esc_url( $img_geschichte ); ?>')"></div>
 						<div class="card-body">
 							<h3><?php esc_html_e( 'Bergbau-Erbe', 'wp-sanktandreasberg' ); ?></h3>
 							<p><?php esc_html_e( 'Oberharz als UNESCO-Weltkulturerbe.', 'wp-sanktandreasberg' ); ?></p>
-							<a class="link" href="#"><?php esc_html_e( 'Zum UNESCO-Erbe', 'wp-sanktandreasberg' ); ?> →</a>
+							<a class="link" href="<?php echo esc_url( $unesco_url ); ?>"><?php esc_html_e( 'Zum UNESCO-Erbe', 'wp-sanktandreasberg' ); ?> →</a>
 						</div>
 					</article>
 					<article class="card tile">
-						<div class="photo town"></div>
+						<div class="photo" style="background-image:url('<?php echo esc_url( $img_stadt ); ?>')"></div>
 						<div class="card-body">
 							<h3><?php esc_html_e( 'Stadtgeschichte', 'wp-sanktandreasberg' ); ?></h3>
 							<p><?php esc_html_e( 'Die Entwicklung der Bergstadt vom Mittelalter bis heute.', 'wp-sanktandreasberg' ); ?></p>
-							<a class="link" href="#"><?php esc_html_e( 'Stadtgeschichte', 'wp-sanktandreasberg' ); ?> →</a>
+							<a class="link" href="<?php echo esc_url( home_url( '/geschichte/' ) ); ?>"><?php esc_html_e( 'Stadtgeschichte', 'wp-sanktandreasberg' ); ?> →</a>
 						</div>
 					</article>
 				</div>

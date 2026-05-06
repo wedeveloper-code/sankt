@@ -209,7 +209,7 @@ function sab_save_route_meta( int $post_id ): void {
 		if ( isset( $_POST[ $f ] ) ) update_post_meta( $post_id, $f, sanitize_text_field( wp_unslash( $_POST[ $f ] ) ) );
 	}
 	foreach ( [ 'route_distance', 'route_elevation' ] as $f ) {
-		if ( isset( $_POST[ $f ] ) ) update_post_meta( $post_id, $f, absint( $_POST[ $f ] ) );
+		if ( isset( $_POST[ $f ] ) ) update_post_meta( $post_id, $f, absint( wp_unslash( $_POST[ $f ] ) ) );
 	}
 }
 

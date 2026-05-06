@@ -77,8 +77,8 @@
 					<div class="today-top"><span class="icon-lg">ⓘ</span><h3><?php esc_html_e( 'Tourist-Info', 'wp-sanktandreasberg' ); ?></h3></div>
 					<div class="mini-lines">
 						<p><?php esc_html_e( 'Geöffnet heute:', 'wp-sanktandreasberg' ); ?><br>
-						<strong><?php echo esc_html( get_theme_mod( 'sab_info_hours', '09:00 – 17:00 Uhr' ) ); ?></strong></p>
-						<?php if ( $phone = get_theme_mod( 'sab_info_phone', '' ) ) : ?>
+						<strong><?php echo esc_html( get_theme_mod( 'sab_ti_hours', '09:00 – 17:00 Uhr' ) ); ?></strong></p>
+						<?php if ( $phone = get_theme_mod( 'sab_ti_phone', '' ) ) : ?>
 							<p>☎ <?php echo esc_html( $phone ); ?></p>
 						<?php endif; ?>
 					</div>

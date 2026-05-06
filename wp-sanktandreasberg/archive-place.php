@@ -7,7 +7,7 @@
 		<?php esc_html_e( 'Sehenswürdigkeiten', 'wp-sanktandreasberg' ); ?>
 	</div>
 
-	<section class="wrap events-hero" style="background-image:none">
+	<section class="wrap events-hero place-hero">
 		<div class="events-hero__content">
 			<span class="label"><?php esc_html_e( 'Entdecken', 'wp-sanktandreasberg' ); ?></span>
 			<h1><?php esc_html_e( 'Sehenswürdigkeiten', 'wp-sanktandreasberg' ); ?></h1>

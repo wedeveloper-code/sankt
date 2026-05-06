@@ -7,7 +7,7 @@
 		<?php esc_html_e( 'Unterkunft & Gastronomie', 'wp-sanktandreasberg' ); ?>
 	</div>
 
-	<section class="wrap events-hero" style="background-image:none">
+	<section class="wrap events-hero business-hero">
 		<div class="events-hero__content">
 			<span class="label"><?php esc_html_e( 'Verzeichnis', 'wp-sanktandreasberg' ); ?></span>
 			<h1><?php esc_html_e( 'Unterkunft & Gastronomie', 'wp-sanktandreasberg' ); ?></h1>

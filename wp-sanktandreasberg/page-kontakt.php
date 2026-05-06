@@ -176,25 +176,31 @@ get_header(); ?>
 		</div>
 	</section>
 
+	<?php
+	$img_aktuelles = get_theme_mod( 'sab_hero_aktuelles', '' ) ?: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=800&q=80';
+	$img_events    = get_theme_mod( 'sab_hero_events',   '' ) ?: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80';
+	$img_business  = get_theme_mod( 'sab_hero_business', '' ) ?: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=800&q=80';
+	$img_places    = get_theme_mod( 'sab_hero_places',   '' ) ?: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80';
+	?>
 	<section class="wrap section">
 		<div class="section-head">
 			<h2><?php esc_html_e( 'Mehr entdecken', 'wp-sanktandreasberg' ); ?></h2>
 		</div>
 		<div class="tile-grid-4">
 			<a class="card tile" href="<?php echo esc_url( home_url( '/aktuelles/' ) ); ?>">
-				<div class="photo forest"></div>
+				<div class="photo" style="background-image:url('<?php echo esc_url( $img_aktuelles ); ?>')"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Aktuelles', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'News & Mitteilungen', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Lesen', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 			<a class="card tile" href="<?php echo esc_url( get_post_type_archive_link( 'event' ) ); ?>">
-				<div class="photo event"></div>
+				<div class="photo" style="background-image:url('<?php echo esc_url( $img_events ); ?>')"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Veranstaltungen', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Alle Events & Termine', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Entdecken', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 			<a class="card tile" href="<?php echo esc_url( get_post_type_archive_link( 'business' ) ); ?>">
-				<div class="photo hotel"></div>
+				<div class="photo" style="background-image:url('<?php echo esc_url( $img_business ); ?>')"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Unterkünfte', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Hotels & Ferienwohnungen', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Finden', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 			<a class="card tile" href="<?php echo esc_url( get_post_type_archive_link( 'place' ) ); ?>">
-				<div class="photo mine"></div>
+				<div class="photo" style="background-image:url('<?php echo esc_url( $img_places ); ?>')"></div>
 				<div class="card-body"><h3><?php esc_html_e( 'Sehenswürdigkeiten', 'wp-sanktandreasberg' ); ?></h3><p class="muted"><?php esc_html_e( 'Orte & Ausflüge', 'wp-sanktandreasberg' ); ?></p><span class="link"><?php esc_html_e( 'Entdecken', 'wp-sanktandreasberg' ); ?> →</span></div>
 			</a>
 		</div>

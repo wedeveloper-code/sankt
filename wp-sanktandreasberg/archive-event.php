@@ -7,7 +7,11 @@
 		<?php esc_html_e( 'Veranstaltungen', 'wp-sanktandreasberg' ); ?>
 	</div>
 
-	<section class="wrap events-hero">
+	<?php
+	$event_hero = get_theme_mod( 'sab_hero_events', '' )
+		?: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85';
+	?>
+	<section class="wrap events-hero" style="background-image:linear-gradient(90deg,rgba(0,28,20,.86),rgba(0,43,31,.55),rgba(0,43,31,.15)),url('<?php echo esc_url( $event_hero ); ?>')">
 		<div class="events-hero__content">
 			<span class="label"><?php esc_html_e( 'Kalender', 'wp-sanktandreasberg' ); ?></span>
 			<h1><?php esc_html_e( 'Veranstaltungen', 'wp-sanktandreasberg' ); ?></h1>

@@ -13,6 +13,7 @@ get_header(); ?>
 
 	<?php
 	$hero_img = get_the_post_thumbnail_url( get_the_ID(), 'full' )
+		?: get_theme_mod( 'sab_hero_erleben', '' )
 		?: 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=2200&q=85';
 	?>
 	<section class="wrap inner-hero" style="--hero:url('<?php echo esc_url( $hero_img ); ?>')">

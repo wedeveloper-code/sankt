@@ -53,6 +53,7 @@ get_header(); ?>
 
 	<?php
 	$hero_img = get_the_post_thumbnail_url( get_the_ID(), 'full' )
+		?: get_theme_mod( 'sab_hero_kontakt', '' )
 		?: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=2200&q=85';
 	?>
 	<section class="wrap inner-hero" style="--hero:url('<?php echo esc_url( $hero_img ); ?>')">

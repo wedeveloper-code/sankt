@@ -18,7 +18,11 @@
 		<?php echo esc_html( $cat_name ); ?>
 	</div>
 
-	<section class="wrap category-hero">
+	<?php
+	$aktuelles_hero = get_theme_mod( 'sab_hero_aktuelles', '' )
+		?: 'https://images.unsplash.com/photo-1585829365295-ab7cd400c167?auto=format&fit=crop&w=2000&q=85';
+	?>
+	<section class="wrap category-hero" style="--hero-image:url('<?php echo esc_url( $aktuelles_hero ); ?>')">
 		<div class="category-hero__content">
 			<span class="label"><?php esc_html_e( 'News', 'wp-sanktandreasberg' ); ?></span>
 			<h1><?php echo esc_html( $cat_name ); ?></h1>

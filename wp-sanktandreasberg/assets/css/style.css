@@ -1170,6 +1170,8 @@ h4 { font-size: 16px; line-height: 1.2; letter-spacing: -.02em; font-weight: 900
 .place-main { padding: 36px 42px }
 .place-main p  { font-size: 17px; color: #314039; margin: 0 0 18px }
 .place-main h2 { margin: 34px 0 14px; font-size: 28px; letter-spacing: -.04em; color: #0d271d }
+.place-main .history-section h2 { color: #fff; margin-top: 0 }
+.place-main .history-section p  { color: rgba(255,255,255,.85) }
 .place-img {
   height: 330px;
   border-radius: var(--radius);

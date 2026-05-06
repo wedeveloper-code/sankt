@@ -1,0 +1,201 @@
+# Copyright (C) 2025 Sankt Andreasberg
+# This file is distributed under the same license as the wp-sanktandreasberg package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-sanktandreasberg 1.0.0\n"
+"Report-Msgid-Bugs-To: https://sant-andreasberg.com\n"
+"POT-Creation-Date: 2025-05-06T00:00:00+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: wp-sanktandreasberg\n"
+"X-Domain: wp-sanktandreasberg\n"
+
+#: template-parts/section-news.php
+msgid "Aktuelles"
+msgstr ""
+
+#: template-parts/section-news.php
+msgid "Alle News anzeigen"
+msgstr ""
+
+#: template-parts/section-news.php
+msgid "Weiterlesen"
+msgstr ""
+
+#: template-parts/section-events.php
+msgid "Veranstaltungen"
+msgstr ""
+
+#: template-parts/section-events.php
+msgid "Alle Veranstaltungen"
+msgstr ""
+
+#: template-parts/section-seasons.php
+msgid "Winter erleben"
+msgstr ""
+
+#: template-parts/section-seasons.php
+msgid "Sommer erleben"
+msgstr ""
+
+#: template-parts/section-experiences.php
+msgid "Top-Erlebnisse"
+msgstr ""
+
+#: template-parts/section-experiences.php
+msgid "Alle Erlebnisse"
+msgstr ""
+
+#: template-parts/section-map.php
+msgid "Entdecken mit Karte"
+msgstr ""
+
+#: template-parts/section-map.php
+msgid "Karte öffnen"
+msgstr ""
+
+#: template-parts/section-lodging.php
+msgid "Unterkunft & Gastronomie"
+msgstr ""
+
+#: template-parts/section-lodging.php
+msgid "Alle Unterkünfte & Restaurants"
+msgstr ""
+
+#: template-parts/section-history.php
+msgid "Unsere Bergstadt mit Geschichte"
+msgstr ""
+
+#: template-parts/section-history.php
+msgid "Mehr zur Geschichte"
+msgstr ""
+
+#: front-page.php
+msgid "Heute in Sankt Andreasberg"
+msgstr ""
+
+#: category.php
+msgid "News"
+msgstr ""
+
+#: category.php
+msgid "Top-Meldung"
+msgstr ""
+
+#: category.php
+msgid "Mehr lesen"
+msgstr ""
+
+#: single.php
+msgid "Vorheriger Artikel"
+msgstr ""
+
+#: single.php
+msgid "Nächster Artikel"
+msgstr ""
+
+#: single.php
+msgid "Teilen:"
+msgstr ""
+
+#: single.php
+msgid "Mehr aus Aktuelles"
+msgstr ""
+
+#: single.php
+msgid "Alle Meldungen"
+msgstr ""
+
+#: archive-event.php
+msgid "Kalender"
+msgstr ""
+
+#: single-event.php
+msgid "Veranstaltungsdetails"
+msgstr ""
+
+#: single-event.php
+msgid "Jetzt anmelden"
+msgstr ""
+
+#: archive-place.php
+msgid "Sehenswürdigkeiten"
+msgstr ""
+
+#: single-place.php
+msgid "Besuchsinformationen"
+msgstr ""
+
+#: single-place.php
+msgid "Lage & Anfahrt"
+msgstr ""
+
+#: single-place.php
+msgid "Route planen"
+msgstr ""
+
+#: single-route.php
+msgid "Länge"
+msgstr ""
+
+#: single-route.php
+msgid "Dauer"
+msgstr ""
+
+#: single-route.php
+msgid "Höhenmeter"
+msgstr ""
+
+#: single-route.php
+msgid "Schwierigkeitsgrad"
+msgstr ""
+
+#: single-business.php
+msgid "Kontakt & Infos"
+msgstr ""
+
+#: page-kontakt.php
+msgid "Kontakt & Service"
+msgstr ""
+
+#: page-kontakt.php
+msgid "Tourist-Information Sankt Andreasberg"
+msgstr ""
+
+#: page-kontakt.php
+msgid "Nachricht senden"
+msgstr ""
+
+#: page-kontakt.php
+msgid "Nachricht gesendet!"
+msgstr ""
+
+#: page-geschichte.php
+msgid "Geschichte"
+msgstr ""
+
+#: page-leben-vor-ort.php
+msgid "Leben vor Ort"
+msgstr ""
+
+#: page-erleben.php
+msgid "Aktivitäten"
+msgstr ""
+
+#: page-winter-sommer.php
+msgid "Winter & Sommer"
+msgstr ""
+
+#: 404.php
+msgid "Seite nicht gefunden"
+msgstr ""
+
+#: 404.php
+msgid "Zur Startseite"
+msgstr ""

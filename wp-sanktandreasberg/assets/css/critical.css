@@ -1,0 +1,27 @@
+/* Critical above-the-fold CSS — inlined in <head> */
+:root{--green-950:#003524;--green-900:#00432d;--green-800:#07583d;--green-700:#0b6b49;--green-100:#edf6f1;--cream:#faf8f1;--cream-2:#f1eadc;--gold:#f1a51f;--ink:#15221d;--muted:#65746d;--line:rgba(15,46,35,.12);--shadow:0 8px 26px rgba(12,43,33,.10);--shadow-lg:0 22px 55px rgba(10,37,29,.17);--radius:14px;--radius-lg:20px;--max:1320px;--font:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.45}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(var(--max),calc(100% - 56px));margin-inline:auto}
+.utility{height:34px;background:#fff;border-bottom:1px solid var(--line);font-size:13px;color:#2b3833}
+.utility .wrap{height:100%;display:flex;align-items:center;justify-content:flex-end;gap:24px}
+.utility a{display:flex;align-items:center;gap:7px;font-weight:650;white-space:nowrap}
+.header{height:78px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.header .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:13px;min-width:275px;flex-shrink:0}
+.logo{width:138px;height:56px;color:var(--green-800);flex:0 0 auto}
+.brand-text strong{display:block;font-size:26px;line-height:1;letter-spacing:-.04em;color:#10251d}
+.brand-text span{display:block;font-size:13px;color:#5a6a63;margin-top:5px}
+.nav{display:flex;align-items:center;justify-content:flex-end;gap:20px;font-size:13px;font-weight:750;color:#23332d;white-space:nowrap}
+.nav a{height:78px;display:flex;align-items:center;position:relative}
+.nav a.active{color:var(--green-800)}
+.nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:16px;height:3px;border-radius:10px;background:var(--green-800)}
+.menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;width:44px;height:42px;color:var(--green-900);font-size:22px;flex:0 0 auto}
+.hero{min-height:360px;color:#fff;background:linear-gradient(90deg,rgba(0,28,20,.86) 0%,rgba(0,43,31,.66) 42%,rgba(0,43,31,.18) 100%) center/cover;position:relative}
+.hero .wrap{min-height:360px;display:flex;align-items:center}
+.hero-content{max-width:760px;padding:50px 0 44px}
+.hero h1{margin:0 0 16px;font-size:58px;line-height:.96;letter-spacing:-.055em;font-weight:900}
+@media(max-width:1080px){.header{height:auto}.header .wrap{min-height:74px;position:relative}.menu-btn{display:grid;place-items:center}.nav{display:none;position:absolute;top:calc(100% + 10px);left:0;right:0;z-index:60;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:14px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow-lg)}.header.open .nav{display:grid}.nav a{height:auto;min-height:48px;padding:12px 14px;border-radius:12px;background:var(--cream)}}
+@media(max-width:640px){.wrap{width:calc(100% - 22px)}.brand-text span{display:none}.logo{width:78px;height:42px}.hero h1{font-size:40px}}

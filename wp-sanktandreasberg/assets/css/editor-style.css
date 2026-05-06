@@ -1,0 +1,50 @@
+/* Gutenberg editor styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --green-950: #003524;
+  --green-900: #00432d;
+  --green-800: #07583d;
+  --green-100: #edf6f1;
+  --cream:     #faf8f1;
+  --gold:      #f1a51f;
+  --ink:       #15221d;
+  --muted:     #65746d;
+  --line:      rgba(15,46,35,.12);
+  --radius:    14px;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.editor-styles-wrapper {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.editor-styles-wrapper h1 { font-size: 46px; letter-spacing: -.05em; font-weight: 900 }
+.editor-styles-wrapper h2 { font-size: 32px; letter-spacing: -.04em; font-weight: 900 }
+.editor-styles-wrapper h3 { font-size: 24px; letter-spacing: -.03em; font-weight: 900 }
+
+.editor-styles-wrapper a { color: var(--green-800) }
+
+.editor-styles-wrapper figure img {
+  border-radius: var(--radius);
+}
+
+.editor-styles-wrapper blockquote {
+  border-left: 5px solid var(--gold);
+  padding: 20px 24px;
+  background: #fff8e8;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 20px;
+  color: #22342d;
+  font-weight: 700;
+  margin: 24px 0;
+}

@@ -28,7 +28,7 @@ get_header(); ?>
 		<div class="page-grid">
 			<article class="card place-main">
 
-				<div class="history" style="margin-bottom:24px">
+				<div class="history-section" style="margin-bottom:24px">
 					<div class="history-inner">
 						<div>
 							<h2><?php esc_html_e( 'Eine Stadt mit tiefen Wurzeln', 'wp-sanktandreasberg' ); ?></h2>

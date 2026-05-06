@@ -7,7 +7,11 @@
 		<?php esc_html_e( 'Unterkunft & Gastronomie', 'wp-sanktandreasberg' ); ?>
 	</div>
 
-	<section class="wrap events-hero business-hero">
+	<?php
+	$business_hero = get_theme_mod( 'sab_hero_business', '' )
+		?: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85';
+	?>
+	<section class="wrap events-hero" style="background-image:linear-gradient(90deg,rgba(0,28,20,.86),rgba(0,43,31,.55),rgba(0,43,31,.15)),url('<?php echo esc_url( $business_hero ); ?>')">
 		<div class="events-hero__content">
 			<span class="label"><?php esc_html_e( 'Verzeichnis', 'wp-sanktandreasberg' ); ?></span>
 			<h1><?php esc_html_e( 'Unterkunft & Gastronomie', 'wp-sanktandreasberg' ); ?></h1>

@@ -44,6 +44,24 @@ function sab_customizer_register( \WP_Customize_Manager $wp_customize ): void {
 		$wp_customize->add_control( $id, [ 'label' => $label, 'section' => 'sab_links', 'type' => 'url' ] );
 	}
 
+	/* ── Section: Archive Heroes ────────────────────────── */
+	$wp_customize->add_section( 'sab_archive_heroes', [
+		'title' => __( 'Archiv-Hintergrundbilder (Архивы — фоновые картинки)', 'wp-sanktandreasberg' ),
+		'panel' => 'sab_panel',
+	] );
+	foreach ( [
+		'sab_hero_places'    => __( 'Sehenswürdigkeiten (Достопримечательности)', 'wp-sanktandreasberg' ),
+		'sab_hero_business'  => __( 'Unterkunft & Gastronomie (Размещение)', 'wp-sanktandreasberg' ),
+		'sab_hero_events'    => __( 'Veranstaltungen (Мероприятия)', 'wp-sanktandreasberg' ),
+		'sab_hero_routes'    => __( 'Routen (Маршруты)', 'wp-sanktandreasberg' ),
+	] as $id => $label ) {
+		$wp_customize->add_setting( $id, [ 'default' => '', 'sanitize_callback' => 'esc_url_raw' ] );
+		$wp_customize->add_control( new \WP_Customize_Image_Control( $wp_customize, $id, [
+			'label'   => $label,
+			'section' => 'sab_archive_heroes',
+		] ) );
+	}
+
 	/* ── Section: Hero ───────────────────────────────────── */
 	$wp_customize->add_section( 'sab_hero', [
 		'title' => __( 'Startseite Hero', 'wp-sanktandreasberg' ),

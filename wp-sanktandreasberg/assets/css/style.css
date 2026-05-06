@@ -598,6 +598,7 @@ h4 { font-size: 16px; line-height: 1.2; letter-spacing: -.02em; font-weight: 900
 .audience .photo { min-height: 178px }
 
 .lodging-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px }
+.page-grid .lodging-grid { grid-template-columns: repeat(2,1fr) }
 .lodging { display: grid; grid-template-columns: 118px 1fr; min-height: 96px }
 .lodging .photo { min-height: 96px }
 .lodging h3 { margin: 0; font-size: 15px }
@@ -1522,14 +1523,6 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   display: flex;
   align-items: flex-end;
   margin-bottom: 18px;
-}
-.place-hero {
-  background: linear-gradient(90deg,rgba(0,28,20,.86),rgba(0,43,31,.55),rgba(0,43,31,.15)),
-    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=2000&q=85') center/cover;
-}
-.business-hero {
-  background: linear-gradient(90deg,rgba(0,28,20,.86),rgba(0,43,31,.55),rgba(0,43,31,.15)),
-    url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85') center/cover;
 }
 .events-hero__content { width: min(780px,100%); padding: 34px }
 .events-hero h1 { margin: 12px 0 12px; font-size: 64px; line-height: .94; letter-spacing: -.06em; font-weight: 950 }

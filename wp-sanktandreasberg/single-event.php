@@ -9,6 +9,7 @@
 	$date_end_str  = sab_meta( 'event_date_end' );
 	$ts            = $date_str ? strtotime( $date_str ) : false;
 	$ts_end        = $date_end_str ? strtotime( $date_end_str ) : false;
+	$date_range    = sab_format_date_range( $date_str, $date_end_str );
 	$location      = sab_meta( 'event_location' );
 	$price         = sab_meta( 'event_price' );
 	$organizer     = sab_meta( 'event_organizer' );
@@ -31,8 +32,10 @@
 			<h1><?php the_title(); ?></h1>
 			<?php if ( has_excerpt() ) : ?><p><?php the_excerpt(); ?></p><?php endif; ?>
 			<div class="hero-meta">
+				<?php if ( $date_range ) : ?>
+					<span>▣ <?php echo esc_html( $date_range ); ?></span>
+				<?php endif; ?>
 				<?php if ( $ts ) : ?>
-					<span>▣ <?php echo esc_html( date_i18n( 'd. F Y', $ts ) ); ?></span>
 					<span>◷ <?php echo esc_html( date_i18n( 'H:i \U\h\r', $ts ) ); ?></span>
 				<?php endif; ?>
 				<?php if ( $location ) : ?><span>⌖ <?php echo esc_html( $location ); ?></span><?php endif; ?>
@@ -84,7 +87,7 @@
 					<?php if ( $ts ) : ?>
 					<div class="price-row">
 						<span class="price-label">◷ <?php esc_html_e( 'Datum', 'wp-sanktandreasberg' ); ?></span>
-						<span><?php echo esc_html( date_i18n( 'd. F Y', $ts ) ); ?></span>
+						<span><?php echo esc_html( $date_range ?: sab_format_date( $date_str ) ); ?></span>
 					</div>
 					<div class="price-row">
 						<span class="price-label">⌚ <?php esc_html_e( 'Uhrzeit', 'wp-sanktandreasberg' ); ?></span>

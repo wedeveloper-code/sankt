@@ -12,7 +12,7 @@ $history_url = home_url( '/geschichte/' );
 			<div class="timeline">
 				<div class="time"><b>1487</b><span><?php esc_html_e( 'Erste urkundliche Erwähnung', 'wp-sanktandreasberg' ); ?></span></div>
 				<div class="time"><b>1527</b><span><?php esc_html_e( 'Beginn des Erzbergbaus', 'wp-sanktandreasberg' ); ?></span></div>
-				<div class="time"><b>1902</b><span><?php esc_html_e( 'Grube Samson in Betrieb', 'wp-sanktandreasberg' ); ?></span></div>
+				<div class="time"><b>1910</b><span><?php esc_html_e( 'Ende des aktiven Bergbaus', 'wp-sanktandreasberg' ); ?></span></div>
 				<div class="time"><b>1992</b><span><?php esc_html_e( 'Besucherbergwerk', 'wp-sanktandreasberg' ); ?></span></div>
 			</div>
 		</div>

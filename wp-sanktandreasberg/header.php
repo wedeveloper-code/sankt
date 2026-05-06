@@ -75,7 +75,6 @@
 			'container'       => 'nav',
 			'container_class' => 'nav',
 			'container_id'    => 'primary-navigation',
-			'container_attrs' => [ 'aria-label' => __( 'Hauptnavigation', 'wp-sanktandreasberg' ) ],
 			'menu_class'      => '',
 			'fallback_cb'     => 'sab_fallback_nav',
 		] );

@@ -13,12 +13,7 @@
 	$terms      = get_the_terms( get_the_ID(), 'activity_type' );
 	$term       = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0] : null;
 
-	$difficulty_labels = [
-		'easy'   => __( 'Leicht', 'wp-sanktandreasberg' ),
-		'medium' => __( 'Mittel', 'wp-sanktandreasberg' ),
-		'hard'   => __( 'Schwer', 'wp-sanktandreasberg' ),
-	];
-	$difficulty_label = isset( $difficulty_labels[ $difficulty ] ) ? $difficulty_labels[ $difficulty ] : $difficulty;
+	$difficulty_label = $difficulty ? sab_difficulty_label( $difficulty ) : '';
 	?>
 
 	<div class="wrap breadcrumb">

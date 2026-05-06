@@ -24,7 +24,7 @@ if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST['sab_contact_nonce']
 		if ( ! $values['privacy'] ) $errors[] = __( 'Bitte stimmen Sie der Datenschutzerklärung zu.', 'wp-sanktandreasberg' );
 
 		if ( empty( $errors ) ) {
-			$to      = get_theme_mod( 'sab_info_email', get_option( 'admin_email' ) );
+			$to      = get_theme_mod( 'sab_ti_email', get_option( 'admin_email' ) );
 			$subject = sprintf( '[Sankt Andreasberg] %s', $values['subject'] ?: __( 'Kontaktanfrage', 'wp-sanktandreasberg' ) );
 			$body    = sprintf(
 				"Name: %s\nE-Mail: %s\nTelefon: %s\n\n%s",
@@ -70,16 +70,16 @@ get_header(); ?>
 					<h2><?php esc_html_e( 'Tourist-Information Sankt Andreasberg', 'wp-sanktandreasberg' ); ?></h2>
 					<p><?php esc_html_e( 'Das Team der Tourist-Information berät Sie gerne zu Ihrem Aufenthalt, Ausflugstipps, Unterkünften, Veranstaltungen und Freizeitmöglichkeiten.', 'wp-sanktandreasberg' ); ?></p>
 					<div class="stats-row">
-						<?php if ( $phone = get_theme_mod( 'sab_info_phone', '+49 5582 8033' ) ) : ?>
+						<?php if ( $phone = get_theme_mod( 'sab_ti_phone', '+49 5582 8033' ) ) : ?>
 							<div class="mini-stat"><b>☎</b><span><?php echo esc_html( $phone ); ?></span></div>
 						<?php endif; ?>
-						<?php if ( $email = get_theme_mod( 'sab_info_email', 'info@sankt-andreasberg.de' ) ) : ?>
+						<?php if ( $email = get_theme_mod( 'sab_ti_email', 'info@sankt-andreasberg.de' ) ) : ?>
 							<div class="mini-stat"><b>✉</b><span><?php echo esc_html( $email ); ?></span></div>
 						<?php endif; ?>
-						<?php if ( $address = get_theme_mod( 'sab_info_address', 'Am Kurpark 9, 37444 Sankt Andreasberg' ) ) : ?>
+						<?php if ( $address = get_theme_mod( 'sab_ti_address', 'Am Kurpark 9, 37444 Sankt Andreasberg' ) ) : ?>
 							<div class="mini-stat"><b>⌖</b><span><?php echo esc_html( $address ); ?></span></div>
 						<?php endif; ?>
-						<?php if ( $hours = get_theme_mod( 'sab_info_hours', 'Mo–Fr 09–17 Uhr' ) ) : ?>
+						<?php if ( $hours = get_theme_mod( 'sab_ti_hours', 'Mo–Fr 09–17 Uhr' ) ) : ?>
 							<div class="mini-stat"><b>◷</b><span><?php echo esc_html( $hours ); ?></span></div>
 						<?php endif; ?>
 					</div>
@@ -135,13 +135,13 @@ get_header(); ?>
 				<section class="card side-card">
 					<h3><?php esc_html_e( 'Schnellkontakt', 'wp-sanktandreasberg' ); ?></h3>
 					<div class="sidebar-list">
-						<?php if ( $phone = get_theme_mod( 'sab_info_phone', '+49 5582 8033' ) ) : ?>
+						<?php if ( $phone = get_theme_mod( 'sab_ti_phone', '+49 5582 8033' ) ) : ?>
 							<span><b><?php esc_html_e( 'Telefon:', 'wp-sanktandreasberg' ); ?></b> <?php echo esc_html( $phone ); ?></span>
 						<?php endif; ?>
-						<?php if ( $email = get_theme_mod( 'sab_info_email', 'info@sankt-andreasberg.de' ) ) : ?>
+						<?php if ( $email = get_theme_mod( 'sab_ti_email', 'info@sankt-andreasberg.de' ) ) : ?>
 							<span><b><?php esc_html_e( 'E-Mail:', 'wp-sanktandreasberg' ); ?></b> <?php echo esc_html( $email ); ?></span>
 						<?php endif; ?>
-						<?php if ( $address = get_theme_mod( 'sab_info_address', 'Am Kurpark 9, 37444 Sankt Andreasberg' ) ) : ?>
+						<?php if ( $address = get_theme_mod( 'sab_ti_address', 'Am Kurpark 9, 37444 Sankt Andreasberg' ) ) : ?>
 							<span><b><?php esc_html_e( 'Adresse:', 'wp-sanktandreasberg' ); ?></b> <?php echo esc_html( $address ); ?></span>
 						<?php endif; ?>
 					</div>

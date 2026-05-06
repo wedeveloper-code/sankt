@@ -56,7 +56,6 @@
 							$cats  = get_the_category();
 							$pcat  = $cats ? $cats[0] : null;
 							$thumb = sab_thumbnail_url( null, 'sab-featured' );
-							$ts    = get_the_time( 'U' );
 					?>
 					<article class="card category-featured">
 						<div class="photo" style="background-image:url('<?php echo $thumb; ?>')">
@@ -103,7 +102,7 @@
 					<?php
 						$post_count++;
 					endwhile;
-					if ( $post_count > 1 ) echo '</div>'; // close category-news-grid
+					if ( $post_count >= 1 ) echo '</div>'; // close category-news-grid
 					?>
 
 					<nav class="pagination" aria-label="<?php esc_attr_e( 'Pagination', 'wp-sanktandreasberg' ); ?>">

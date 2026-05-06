@@ -136,6 +136,6 @@ add_filter( 'nav_menu_link_attributes', function ( array $atts, \WP_Post $item )
  * Wrap WP nav menu <ul> in a <nav> without extra wrapper when container = false.
  * (We use container='nav' in wp_nav_menu calls, so this is a safety filter.)
  */
-add_filter( 'nav_menu_css_class', function ( array $classes, \WP_Post $item ) use ( &$classes ): array {
+add_filter( 'nav_menu_css_class', function ( array $classes ): array {
 	return array_filter( $classes, fn( $c ) => '' !== trim( $c ) );
-}, 10, 2 );
+}, 10, 1 );

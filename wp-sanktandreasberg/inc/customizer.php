@@ -18,7 +18,7 @@ function sab_customizer_register( \WP_Customize_Manager $wp_customize ): void {
 	] );
 	foreach ( [
 		'sab_ti_phone'   => [ 'label' => __( 'Telefon', 'wp-sanktandreasberg' ), 'default' => '+49 5582 8033' ],
-		'sab_ti_email'   => [ 'label' => __( 'E-Mail', 'wp-sanktandreasberg' ), 'default' => 'info@sant-andreasberg.de' ],
+		'sab_ti_email'   => [ 'label' => __( 'E-Mail', 'wp-sanktandreasberg' ), 'default' => 'info@sankt-andreasberg.de' ],
 		'sab_ti_address' => [ 'label' => __( 'Adresse', 'wp-sanktandreasberg' ), 'default' => 'Am Kurpark 9, 37444 Sankt Andreasberg' ],
 		'sab_ti_hours'   => [ 'label' => __( 'Öffnungszeiten', 'wp-sanktandreasberg' ), 'default' => 'Mo–Fr 09:00–17:00' ],
 	] as $id => $args ) {

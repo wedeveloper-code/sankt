@@ -59,7 +59,7 @@
 				if ( $addr ) echo '<li>' . esc_html( $addr ) . '</li>';
 				$phone = get_theme_mod( 'sab_ti_phone', '+49 5582 8033' );
 				if ( $phone ) echo '<li><a href="tel:' . esc_attr( preg_replace( '/\s+/', '', $phone ) ) . '">' . esc_html( $phone ) . '</a></li>';
-				$email = get_theme_mod( 'sab_ti_email', 'info@sant-andreasberg.de' );
+				$email = get_theme_mod( 'sab_ti_email', 'info@sankt-andreasberg.de' );
 				if ( $email ) echo '<li><a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a></li>';
 				$hours = get_theme_mod( 'sab_ti_hours', '' );
 				if ( $hours ) echo '<li>' . esc_html( $hours ) . '</li>';

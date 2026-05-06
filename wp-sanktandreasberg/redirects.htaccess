@@ -119,7 +119,7 @@ RewriteRule ^bergsport/de/text/links\.html$ / [R=301,L]
 
 # Walpurgis / Events
 RewriteRule ^bergsport/de/text/walpurgis\.html$ /veranstaltungen/ [R=301,L]
-RewriteRule ^bergsport/de/text/harzfest\.html$ /veranstaltungen/ [R=301,L] 2>/dev/null
+RewriteRule ^bergsport/de/text/harzfest\.html$ /veranstaltungen/ [R=301,L]
 RewriteRule ^bergsport/de/text/wiesenbluete\.html$ /veranstaltungen/ [R=301,L]
 
 # Andreasberg sub-site (old hotel/lodge site) → Business directory

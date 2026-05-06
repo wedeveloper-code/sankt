@@ -1458,7 +1458,178 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   z-index: 9999;
 }
 
-/* ─── 26. Media Queries ───────────────────────────────────── */
+/* ─── 25b. Inner-page Hero (activity, season, history, contact) ─── */
+.inner-hero {
+  min-height: 310px;
+  color: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(90deg,rgba(0,28,20,.86) 0%,rgba(0,43,31,.58) 48%,rgba(0,43,31,.15) 100%),var(--hero) center/cover;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+.inner-hero__content { width: min(780px,100%); padding: 34px }
+.inner-hero h1 { margin: 12px 0 12px; font-size: 64px; line-height: .94; letter-spacing: -.06em; font-weight: 950 }
+.inner-hero p  { max-width: 700px; margin: 0; font-size: 18px; line-height: 1.4; color: rgba(255,255,255,.92) }
+
+/* ─── 25c. Tile grid (activity, season page) ───────────────── */
+.tile-grid   { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px }
+.tile-grid-4 { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 14px }
+.tile .photo { height: 168px }
+
+/* ─── 25d. Stats row (contact page) ──────────────────────────── */
+.stats-row  { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; margin: 22px 0 28px }
+.mini-stat  { padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--cream) }
+.mini-stat b    { display: block; margin-bottom: 3px; font-size: 20px; line-height: 1; color: var(--green-800); letter-spacing: -.03em }
+.mini-stat span { color: var(--muted); font-size: 13px; font-weight: 700 }
+
+/* ─── 25e. Main card (contact page) ──────────────────────────── */
+.main-card { padding: 36px 42px }
+.main-card p    { font-size: 17px; color: #314039; margin: 0 0 18px }
+.main-card .intro { font-size: 20px; line-height: 1.5; color: #20342b; font-weight: 620 }
+.main-card h2   { margin: 34px 0 14px; font-size: 28px; line-height: 1.1; letter-spacing: -.04em; color: #0d271d }
+.main-card h3   { margin: 22px 0 10px; font-size: 21px; line-height: 1.15; letter-spacing: -.03em }
+
+/* ─── 25f. Events hero (archive-event) ───────────────────────── */
+.events-hero {
+  min-height: 310px;
+  color: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(90deg,rgba(0,28,20,.86),rgba(0,43,31,.55),rgba(0,43,31,.15)),
+    url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85') center/cover;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+.events-hero__content { width: min(780px,100%); padding: 34px }
+.events-hero h1 { margin: 12px 0 12px; font-size: 64px; line-height: .94; letter-spacing: -.06em; font-weight: 950 }
+.events-hero p  { max-width: 700px; margin: 0; font-size: 18px; line-height: 1.4; color: rgba(255,255,255,.92) }
+
+/* ─── 25g. Submit card (archive-event CTA) ───────────────────── */
+.submit-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 22px;
+  background: linear-gradient(135deg,var(--green-950),var(--green-800));
+  color: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-top: 24px;
+}
+.submit-card h2 { margin: 0 0 6px; font-size: 26px; letter-spacing: -.04em }
+.submit-card p  { margin: 0; color: rgba(255,255,255,.86) }
+
+/* ─── 25h. Article hero (single.php) ────────────────────────── */
+.article-hero {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  min-height: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--green-900);
+  color: #fff;
+  margin-bottom: 20px;
+}
+.article-hero__photo {
+  min-height: 420px;
+  background: linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.24)),
+    url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=85') center/cover;
+}
+.article-hero__content {
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg,var(--green-950),var(--green-800));
+}
+.article-hero h1 { margin: 16px 0 18px; font-size: clamp(38px,5vw,64px); line-height: .96; letter-spacing: -.06em; font-weight: 950; text-wrap: balance }
+.article-hero p  { margin: 0 0 22px; max-width: 680px; font-size: 18px; line-height: 1.4; color: rgba(255,255,255,.9) }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 13px 20px; color: rgba(255,255,255,.84); font-size: 14px; font-weight: 650 }
+
+/* ─── 25i. Article card (single.php) ───────────────────────── */
+.article-card { padding: 36px 42px }
+.article-card p    { font-size: 17px; color: #314039; margin: 0 0 18px }
+.article-card .intro { font-size: 20px; line-height: 1.5; color: #20342b; font-weight: 620 }
+.article-card h2   { margin: 34px 0 14px; font-size: 28px; line-height: 1.1; letter-spacing: -.04em; color: #0d271d }
+.article-card h3   { margin: 28px 0 12px; font-size: 21px; line-height: 1.15; letter-spacing: -.03em }
+.article-img { height: 330px; border-radius: var(--radius); overflow: hidden; margin: 26px 0 8px; background: center/cover }
+.caption { margin-bottom: 24px; font-size: 12px; color: var(--muted) }
+
+/* ─── 25j. Event hero (single-event.php) ───────────────────── */
+.event-hero {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  min-height: 420px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--green-900);
+  color: #fff;
+  margin-bottom: 20px;
+}
+.event-hero__photo {
+  min-height: 420px;
+  background: linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.26)),
+    url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=85') center/cover;
+}
+.event-hero__content {
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg,var(--green-950),var(--green-800));
+}
+.event-hero h1 { margin: 16px 0 18px; font-size: clamp(38px,5vw,64px); line-height: .96; letter-spacing: -.06em; font-weight: 950; text-wrap: balance }
+.event-hero p  { margin: 0 0 22px; max-width: 680px; font-size: 18px; line-height: 1.4; color: rgba(255,255,255,.9) }
+.event-meta { display: grid; gap: 9px; color: rgba(255,255,255,.88); font-size: 14px; font-weight: 650; margin-top: 12px }
+.event-card-main { padding: 36px 42px }
+.event-card-main p    { font-size: 17px; color: #314039; margin: 0 0 18px }
+.event-card-main .intro { font-size: 20px; line-height: 1.5; color: #20342b; font-weight: 620 }
+.event-card-main h2   { margin: 34px 0 14px; font-size: 28px; line-height: 1.1; letter-spacing: -.04em; color: #0d271d }
+.event-img { height: 320px; border-radius: var(--radius); overflow: hidden; margin: 26px 0 8px; background: center/cover }
+
+/* ─── 25k. Place grid (archive-place.php) ──────────────────── */
+.place-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; margin-top: 14px }
+.place-meta { display: flex; gap: 12px; font-size: 12px; color: var(--muted); margin: 8px 0 0 }
+
+/* ─── 25l. Business hero (single-business.php) ─────────────── */
+.business-hero {
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  min-height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--green-900);
+  color: #fff;
+  margin-bottom: 20px;
+}
+.business-hero__photo {
+  min-height: 380px;
+  background: linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.26)) center/cover;
+}
+.business-hero__content {
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(135deg,var(--green-950),var(--green-800));
+}
+.business-hero h1 { margin: 16px 0 18px; font-size: clamp(32px,4vw,52px); line-height: .96; letter-spacing: -.05em; font-weight: 950 }
+.business-hero p  { margin: 0 0 16px; font-size: 17px; line-height: 1.4; color: rgba(255,255,255,.9) }
+
+/* ─── 25m. 404 error page ───────────────────────────────────── */
+.error-404 { max-width: 600px; margin: 0 auto }
+.error-num { font-size: clamp(120px,20vw,200px); font-weight: 950; line-height: 1; color: var(--green-100); letter-spacing: -.06em; margin-bottom: 16px }
+
+/* ─── 26. Media Queries ───────────────────────────────────────────────────── */
 @media (max-width: 1280px) {
   .wrap { width: min(var(--max), calc(100% - 32px)) }
   .nav { gap: 12px; font-size: 12px }
@@ -1487,6 +1658,12 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   .activity-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
   .discover-grid { grid-template-columns: repeat(3,minmax(0,1fr)) }
   .amenities-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .tile-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .tile-grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .stats-row { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .place-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .related-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .event-row { grid-template-columns: repeat(2,minmax(0,1fr)) }
 }
 
 @media (max-width: 1080px) {
@@ -1591,9 +1768,27 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   .related-grid,
   .activity-grid,
   .discover-grid,
-  .directory-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .directory-grid,
+  .place-grid,
+  .event-row { grid-template-columns: repeat(2,minmax(0,1fr)) }
   .route-stats { grid-template-columns: repeat(2,minmax(0,1fr)) }
   .program-item { grid-template-columns: 76px 1fr }
+  .article-hero { grid-template-columns: 1fr }
+  .article-hero__photo { min-height: 260px }
+  .event-hero { grid-template-columns: 1fr }
+  .event-hero__photo { min-height: 260px }
+  .article-card { padding: 28px }
+  .event-card-main { padding: 28px }
+  .main-card { padding: 28px }
+  .submit-card { grid-template-columns: 1fr }
+  .inner-hero h1 { font-size: 50px }
+  .inner-hero { min-height: 280px }
+  .events-hero h1 { font-size: 50px }
+  .events-hero { min-height: 280px }
+  .stats-row { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .tile-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .tile-grid-4 { grid-template-columns: repeat(2,minmax(0,1fr)) }
+  .place-grid { grid-template-columns: repeat(2,minmax(0,1fr)) }
 }
 
 @media (max-width: 640px) {
@@ -1648,7 +1843,12 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   .related-grid,
   .activity-grid,
   .discover-grid,
-  .directory-grid { grid-template-columns: 1fr }
+  .directory-grid,
+  .place-grid,
+  .event-row,
+  .tile-grid,
+  .tile-grid-4,
+  .stats-row { grid-template-columns: 1fr }
   .category-featured .photo { min-height: 210px }
   .facts { grid-template-columns: 1fr 1fr }
   .gallery { grid-template-columns: 1fr }
@@ -1659,6 +1859,37 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   .place-hero p { font-size: 16px }
   .article-body { padding: 20px }
   .article-body .intro { font-size: 18px }
+  .article-card { padding: 22px }
+  .article-card p { font-size: 16px }
+  .article-card .intro { font-size: 18px }
+  .article-card h2 { font-size: 24px }
+  .article-hero { grid-template-columns: 1fr }
+  .article-hero__photo { min-height: 220px }
+  .article-hero__content { padding: 26px }
+  .article-hero h1 { font-size: 36px }
+  .article-hero p { font-size: 16px }
+  .event-hero { grid-template-columns: 1fr }
+  .event-hero__photo { min-height: 220px }
+  .event-hero__content { padding: 26px }
+  .event-hero h1 { font-size: 36px }
+  .event-hero p { font-size: 16px }
+  .event-card-main { padding: 22px }
+  .event-card-main p { font-size: 16px }
+  .event-card-main .intro { font-size: 18px }
+  .event-card-main h2 { font-size: 24px }
+  .main-card { padding: 22px }
+  .main-card p { font-size: 16px }
+  .main-card .intro { font-size: 18px }
+  .main-card h2 { font-size: 24px }
+  .inner-hero__content { padding: 24px }
+  .inner-hero h1 { font-size: 38px }
+  .inner-hero p { font-size: 16px }
+  .events-hero__content { padding: 24px }
+  .events-hero h1 { font-size: 38px }
+  .events-hero p { font-size: 16px }
+  .business-hero { grid-template-columns: 1fr }
+  .business-hero__photo { min-height: 220px }
+  .business-hero__content { padding: 26px }
   .quote { font-size: 19px }
   .info-box { grid-template-columns: 1fr }
   .info-icon { margin-bottom: 8px }
@@ -1667,5 +1898,5 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
   .route-stats,
   .amenities-grid { grid-template-columns: 1fr 1fr }
   .form-grid { grid-template-columns: 1fr }
-  .not-found-section .big-number { font-size: 100px }
+  .error-num { font-size: 100px }
 }

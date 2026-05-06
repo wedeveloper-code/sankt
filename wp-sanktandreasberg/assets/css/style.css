@@ -110,6 +110,9 @@ h4 { font-size: 16px; line-height: 1.2; letter-spacing: -.02em; font-weight: 900
   white-space: nowrap;
 }
 .utility a:hover { color: var(--green-800) }
+/* WordPress wp_nav_menu() structure for utility bar */
+.utility ul { display: contents; list-style: none; margin: 0; padding: 0 }
+.utility li { display: contents; list-style: none }
 
 .header {
   height: 78px;
@@ -178,6 +181,21 @@ h4 { font-size: 16px; line-height: 1.2; letter-spacing: -.02em; font-weight: 900
   background: var(--green-800);
 }
 .nav a:hover { color: var(--green-800) }
+/* WordPress wp_nav_menu() wraps items in ul > li */
+.nav > ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav > ul > li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .menu-btn {
   display: none;
   border: 1px solid var(--line);
@@ -1689,6 +1707,8 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
     line-height: 1.2;
   }
   .header.open .nav { display: grid }
+  .nav > ul { display: contents }
+  .nav > ul > li { display: contents }
   .nav a {
     height: auto;
     min-height: 48px;
@@ -1793,7 +1813,7 @@ textarea.input { height: 140px; padding-top: 14px; resize: vertical }
 
 @media (max-width: 640px) {
   .wrap { width: calc(100% - 22px) }
-  .utility a:nth-child(3), .utility a:nth-child(4) { display: none }
+  .utility li:nth-child(3), .utility li:nth-child(4) { display: none }
   .brand-text span { display: none }
   .brand { min-width: auto; gap: 8px }
   .brand-text strong { font-size: 19px }
